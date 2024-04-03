@@ -20,24 +20,26 @@ Este projeto consiste em um E-commerce de livros desenvolvido para a disciplina 
 ```
 │
 └───src
-|   └───concepts
-|   |    └───concept_name
-│   |        │
-│   |        └───components
-│   |        │   │
-│   |        │   └─atoms
-│   |        │   │
-│   |        │   └─molecules
-│   |        │   │
-│   |        │   └─organisms
-│   |        │   │
-│   |        │   └─templates
-│   |        │
-|   |        └─hooks
-|   |
-|   └───apis (server apis)
-|   |
-|   └───images
+│   │
+│   └───concepts
+│   │    │
+│   │    └───concept_name
+│   │        │
+│   │        └───components
+│   │        │   │
+│   │        │   └─atoms
+│   │        │   │
+│   │        │   └─molecules
+│   │        │   │
+│   │        │   └─organisms
+│   │        │   │
+│   │        │   └─templates
+│   │        │
+│   │        └─hooks
+│   │
+│   └───apis (server apis)
+│   │
+│   └───images
 │
 └───public
     │
