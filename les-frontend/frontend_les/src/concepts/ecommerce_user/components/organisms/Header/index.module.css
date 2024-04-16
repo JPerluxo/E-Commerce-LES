@@ -1,0 +1,22 @@
+.NavBrand {
+  margin-right: 0;
+}
+
+.NavBrand img {
+  height: 3rem;
+  width: 9rem;
+}
+
+.Navbar {
+  background-color: #333533;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  border-bottom: 4px solid #0d6efd;
+}
+
+@media screen and ((max-width: 768px)) {
+  .Container {
+    flex-direction: column;
+  }
+}

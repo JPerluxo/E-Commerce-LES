@@ -4,13 +4,15 @@ Este projeto consiste em um E-commerce de livros desenvolvido para a disciplina 
 
 ### **Execução**
 
-- dependências: executar o comando na raiz do projeto:
-
+- #### dependências:
+  - executar o comando na raiz do projeto:
   ```bash
   npm install
   ```
 
-- dev: executar o comando na raiz do projeto:
+- #### dev:
+  - renomear o arquivo "[.env.example](./.env.example)" para ".env.local" e preencher as variáveis de ambiente necessárias com os valores apropriados.
+  - executar o comando na raiz do projeto:
   ```bash
   npm start
   ```

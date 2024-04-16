@@ -1,0 +1,48 @@
+.Form {
+  width: 50%;
+}
+
+.InputGroup {
+  width: auto !important;
+  flex-wrap: nowrap !important;
+}
+
+.InputGroup div {
+  width: 100% !important;
+}
+
+.InputGroup input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.InputGroup input:focus {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 .25rem #85858540 !important;
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.Button:hover {
+  color: #ffffff !important;
+  background-color: #000000bf !important;
+  border-color: #000000bf !important;
+}
+
+.Button:active {
+  color: #ffffff !important;
+  background-color: #00000080 !important;
+  border-color: #00000080 !important;
+}
+
+@media screen and ((max-width: 768px)) {
+  .Form {
+    width: 100%;
+  }
+}

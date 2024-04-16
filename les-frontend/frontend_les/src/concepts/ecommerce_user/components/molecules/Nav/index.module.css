@@ -1,0 +1,10 @@
+.DropdownMenu {
+  position: absolute !important;
+}
+
+.NavLink {
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+  font-size: large;
+}
