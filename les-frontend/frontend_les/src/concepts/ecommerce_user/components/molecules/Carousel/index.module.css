@@ -1,0 +1,14 @@
+.BootstrapCarousel {
+    padding-top: 14vh;
+}
+
+.BootstrapCarousel img {
+    height: 50vh;
+    width: 100%;
+}
+
+@media screen and ((max-width: 768px)) {
+    .BootstrapCarousel {
+      padding-top: 28vh;
+    }
+}
