@@ -1,0 +1,11 @@
+.Card {
+  max-width: 18rem;
+}
+
+.CardBody {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}

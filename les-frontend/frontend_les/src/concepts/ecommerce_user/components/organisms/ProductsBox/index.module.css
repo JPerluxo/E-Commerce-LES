@@ -1,0 +1,9 @@
+.Row {
+  padding: 5vh;
+  width: 100%;
+}
+
+.Col {
+  display: flex;
+  justify-content: center;
+}
