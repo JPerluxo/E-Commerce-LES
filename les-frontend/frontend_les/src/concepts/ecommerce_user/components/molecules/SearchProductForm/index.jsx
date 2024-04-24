@@ -15,7 +15,7 @@ const SearchProductForm = () => {
   const handleSearch = (value) => {
     setIsLoading(true);
 
-    bookApi.getBookByTitle(value).then(data => {
+    bookApi.getBooksByTitle(value).then(data => {
       setOptions(data);
       setIsLoading(false);
     })

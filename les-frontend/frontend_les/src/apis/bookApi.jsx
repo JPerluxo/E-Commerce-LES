@@ -2,9 +2,9 @@
 //import { defineCancelApiObject } from './configs/axiosUtils';
 
 export const bookApi = {
-  getBookByTitle: async function (title, cancel = false) {
+  getBooksByTitle: async function (title, cancel = false) {
     // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/bookbytitle?title=${title}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/booksbytitle?title=${title}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
     //   method: "GET",
     //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
     // })
@@ -21,9 +21,9 @@ export const bookApi = {
     return response.data;
   },
 
-  getBookByCategory: async function (category, cancel = false) {
+  getBooksByCategory: async function (category, cancel = false) {
     // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/bookbycategory?category=${category}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/booksbycategory?category=${category}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
     //   method: "GET",
     //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
     // })
