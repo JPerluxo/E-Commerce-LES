@@ -17,12 +17,12 @@ const CategoryPage = () => {
   },[urlId]);
 
 
-  return (<>
+  return (category ? <>
     <Header/>
-    <h1 className={styles.h1}>{category ? category.description : null}</h1>
-    <ProductsBox category={category ? category.id : null}/>
+    <h1 className={styles.h1}>{category.description}</h1>
+    <ProductsBox category={category.id}/>
     <Footer/>
-  </>)
+  </> : null)
 }
 
 export default CategoryPage;

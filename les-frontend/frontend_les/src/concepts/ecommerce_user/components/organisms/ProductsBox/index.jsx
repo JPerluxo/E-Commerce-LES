@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import ProductCard from '../../molecules/ProductCard';
 import { bookApi } from '../../../../../apis/bookApi';
 
-const ProductsBox = ( {category} ) => {
+const ProductsBox = ({ category }) => {
   const [products, setProducts] = useState([]);
   bookApi.getBooksByCategory(category).then(data => { setProducts(data); });
 
