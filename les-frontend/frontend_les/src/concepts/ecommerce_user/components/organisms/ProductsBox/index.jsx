@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import ProductCard from '../../molecules/ProductCard';
 import { bookApi } from '../../../../../apis/bookApi';
 
-const ProductsBox = ({ category }) => {
+const ProductsBox = () => {
   const [products, setProducts] = useState([]);
-  bookApi.getBooksByCategory(category).then(data => { setProducts(data); });
+  bookApi.getBooks().then(data => { setProducts(data); });
 
   return (
     <Row xs={1} md={3} className={`g-4 ${styles.Row}`}>
