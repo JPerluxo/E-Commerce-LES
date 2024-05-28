@@ -26,6 +26,17 @@ export const bookApi = {
     }
 
     return response.data;
+  },
+
+  bookToCart: async function ( cartObject, cancel = false) {
+    // const response = await api.request({
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/toCart?bookId=${cartObject.bookId}&bookQuantity=${cartObject.bookQuantity}&purchaseStatus=${cartObject.purchaseStatus}&bookValue=${cartObject.bookValue}&clientId=${cartObject.clientId}`,
+    //   method: "POST",
+    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    // })
+
+    const url = `${process.env.REACT_APP_BACKEND_URL}/book/toCart?bookId=${cartObject.bookId}&bookQuantity=${cartObject.bookQuantity}&purchaseStatus=${cartObject.purchaseStatus}&bookValue=${cartObject.bookValue}&clientId=${cartObject.clientId}`;
+    console.log(url);
   }
 }
 
