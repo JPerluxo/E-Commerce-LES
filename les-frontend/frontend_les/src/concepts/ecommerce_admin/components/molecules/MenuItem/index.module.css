@@ -1,0 +1,13 @@
+.menuItem {
+  text-align: center;
+}
+
+.menuItem img {
+  max-width: 20vh;
+}
+
+.menuItem a, .menuItem h3 {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
