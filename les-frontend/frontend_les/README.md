@@ -1,6 +1,6 @@
 # **E-Commerce LES**
 
-Este projeto consiste em um E-commerce de livros desenvolvido para a disciplina de Laboratório de Engenharia de Software da FATEC de Mogi das Cruzes. O sistema foi criado para facilitar a compra e venda de livros online. Com funcionalidades como cadastro e desativação de livros, registro de clientes com requisitos de senha segura e criptografada, gestão de vendas online e controle de carrinho de compras, nosso objetivo é oferecer uma plataforma eficaz para transações comerciais online, satisfazendo tanto os leitores quanto os administradores do sistema.
+Este projeto consiste em um E-commerce de bebidas alcoólicas desenvolvido para a disciplina de Laboratório de Engenharia de Software da FATEC de Mogi das Cruzes. O sistema foi criado para facilitar a compra e venda de bebidas alcoólicas online. Com funcionalidades como cadastro e desativação de bebidas alcoólicas, registro de clientes com requisitos de senha segura e criptografada, gestão de vendas online e controle de carrinho de compras, nosso objetivo é oferecer uma plataforma eficaz para transações comerciais online, satisfazendo tanto os consumidores quanto os administradores do sistema.
 
 ### **Execução**
 
@@ -12,6 +12,10 @@ Este projeto consiste em um E-commerce de livros desenvolvido para a disciplina 
 
 - #### dev:
   - renomear o arquivo "[.env.example](./.env.example)" para ".env.local" e preencher as variáveis de ambiente necessárias com os valores apropriados.
+  - executar o comando no terminal do git:
+  ```bash 
+  git update-index --skip-worktree les-frontend/frontend_les/.env.example
+  ```
   - executar o comando na raiz do projeto:
   ```bash
   npm start
@@ -79,7 +83,7 @@ Na pasta "hooks" ficarão as chamadas da regra de negócio, sendo elas lógica d
 
 Dentro da pasta "concepts", alinhada à abordagem do Domain-Driven Design (DDD), cada subpasta representa um domínio específico da aplicação. O DDD é uma metodologia que foca em representar o domínio do problema através do código, e neste contexto, cada "concept" representa um domínio ou subdomínio específico, sendo uma parte isolada da lógica de negócio.
 
-Por exemplo, se há a necessidade de um grupo de componentes que será utilizado exclusivamente dentro de um contexto de "cadastro de livro", pode-se criar uma pasta dentro de "concepts" com o nome "cadastro-livro". Dessa forma, além da organização por componentes, a estrutura também reflete a organização por domínio de regra de negócio ou funcionalidade.
+Por exemplo, se há a necessidade de um grupo de componentes que será utilizado exclusivamente dentro de um contexto de "cadastro de bebida", pode-se criar uma pasta dentro de "concepts" com o nome "cadastro-bebida". Dessa forma, além da organização por componentes, a estrutura também reflete a organização por domínio de regra de negócio ou funcionalidade.
 
 Esses componentes serão utilizados apenas dentro do contexto dessa funcionalidade e não serão de uso genérico para toda a aplicação. Cada "concept" terá seu grupo de componentes, organizados usando atomic design, seus "hooks", tudo que for pertinente apenas a esse domínio ou funcionalidade específica.
 

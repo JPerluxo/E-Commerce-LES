@@ -12,6 +12,10 @@ Este projeto consiste em um E-commerce de bebidas alcoólicas desenvolvido para 
 
 - #### dev:
   - renomear o arquivo "[.env.example](./.env.example)" para ".env.local" e preencher as variáveis de ambiente necessárias com os valores apropriados.
+  - executar o comando no terminal do git:
+  ```bash 
+  git update-index --skip-worktree les-backend/backend_les/.env.example
+  ```
   - executar o comando na raiz do projeto:
   ```bash
   npm start
