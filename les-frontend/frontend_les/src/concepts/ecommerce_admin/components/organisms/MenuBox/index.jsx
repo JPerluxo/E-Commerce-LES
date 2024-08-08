@@ -2,17 +2,17 @@ import React from 'react';
 import styles from './index.module.css';
 
 import MenuItem from '../../molecules/MenuItem';
-import CadastrarClientePng from '../../../../../images/home-admin/cadastrar-cliente.png';
-import CadastrarProdutoPng from '../../../../../images/home-admin/cadastrar-produto.png';
-import CadastrarCupomPng from '../../../../../images/home-admin/cadastrar-cupom.png';
+import GerenciarClientePng from '../../../../../images/home-admin/gerenciar-cliente.png';
+import GerenciarProdutoPng from '../../../../../images/home-admin/gerenciar-produto.png';
+import GerenciarCupomPng from '../../../../../images/home-admin/gerenciar-cupom.png';
 
 const MenuBox = () => {
   return (
     <div className={styles.menu}>
       <ul className={styles.menuBox}>
-        <MenuItem link="./userForm" image={CadastrarClientePng} text="Cadastrar Cliente"/>
-        <MenuItem link="./productForm" image={CadastrarProdutoPng} text="Cadastrar Produto"/>
-        <MenuItem link="./coupomForm" image={CadastrarCupomPng} text="Cadastrar Cupom"/>
+        <MenuItem link="./userForm" image={GerenciarClientePng} text="Gerenciar Cliente"/>
+        <MenuItem link="./productForm" image={GerenciarProdutoPng} text="Gerenciar Produto"/>
+        <MenuItem link="./coupomForm" image={GerenciarCupomPng} text="Gerenciar Cupom"/>
       </ul>
     </div>
     
