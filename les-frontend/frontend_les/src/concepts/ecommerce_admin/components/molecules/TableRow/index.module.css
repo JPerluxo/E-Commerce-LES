@@ -1,0 +1,19 @@
+.actionsCell {
+    font-size: x-large;
+}
+
+.editIcon {
+    color: #ffa500;
+    margin-right: 2vh;
+    transition: transform 0.2s ease-in-out;
+}
+
+.deleteIcon {
+    color: #ff0000;
+    transition: transform 0.2s ease-in-out;
+}
+
+.editIcon:hover, .deleteIcon:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}

@@ -1,0 +1,19 @@
+.tableBox {
+    margin-top: 14vh;
+    padding: 3rem;
+}
+
+.tableDiv {
+    padding: 1rem;
+    background-color: #ffffffab;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+    border-radius: 1rem;
+}
+
+.tableDiv table {
+    text-align: center;
+}
+
+.tableDiv td {
+    vertical-align: middle;
+}
