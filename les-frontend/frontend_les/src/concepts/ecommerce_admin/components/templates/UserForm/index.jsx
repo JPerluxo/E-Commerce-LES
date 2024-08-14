@@ -25,7 +25,7 @@ const UserForm = () => {
         setAlert({status: 500, message: `Erro: ${error.message}`});
       }
     })();
-  }, []);
+  }, [setAlert]);
 
   return (<>
     <Header/>

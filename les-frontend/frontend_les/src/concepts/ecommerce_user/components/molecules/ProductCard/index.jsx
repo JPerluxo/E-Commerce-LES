@@ -7,24 +7,29 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { bookApi } from '../../../../../apis/bookApi';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAlert }) => {
   const inputRef = useRef(null);
   
-  function SendToCart() {
-    const quantity = inputRef.current.value;
-    
-    if(quantity >= 1) {
-      const cartObject = {
-        bookId: product.id,
-        bookQuantity: quantity,
-        purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
-        bookValue: product.price,
-        clientId: "ID", // Ver como pegar ID do cliente
-      }
+  async function SendToCart() {
+    try {
+      const quantity = inputRef.current.value;
+      
+      if(quantity >= 1) {
+        const cartObject = {
+          bookId: product.id,
+          bookQuantity: quantity,
+          purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
+          bookValue: product.price,
+          clientId: "ID", // Ver como pegar ID do cliente
+        }
 
-      bookApi.bookToCart(cartObject);
+        const response = await bookApi.bookToCart(cartObject);
+        onAlert({ status: response.status, message: response.message });
+      }
+      else onAlert({status: 500, message: "Insira um valor válido!"});
+    } catch (error) {
+      onAlert({status: 500, message: `Erro: ${error.message}`});
     }
-    else window.alert("Insira um valor válido!");
   };
 
   return (
