@@ -10,6 +10,7 @@ export const userApi = {
       // })
   
       var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+        status:200,
         data: {
           collumns: ["ID", "NOME COMPLETO", "CPF", "ATIVO", "AÇÃO"],
           rows: [
@@ -31,7 +32,7 @@ export const userApi = {
         }
       }
   
-      return response.data;
+      return response;
     }
   }
   

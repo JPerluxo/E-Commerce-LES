@@ -6,7 +6,7 @@ import TableHeader from '../../molecules/TableHeader';
 import TableRow from '../../molecules/TableRow';
 
 const TableBox = ({ content }) => {
-  return (<div className={styles.tableBox}>
+  return (
     <div className={styles.tableDiv}>
       <Table striped bordered hover>
         <TableHeader collumns={content.collumns}/>
@@ -15,7 +15,7 @@ const TableBox = ({ content }) => {
         </tbody>
       </Table>
     </div>
-  </div>)
+  )
 }
 
 export default TableBox;
