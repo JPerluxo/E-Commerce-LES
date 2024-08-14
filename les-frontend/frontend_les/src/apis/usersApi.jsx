@@ -10,7 +10,7 @@ export const userApi = {
       // })
   
       var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
-        status:200,
+        status: 200,
         data: {
           collumns: ["ID", "NOME COMPLETO", "CPF", "ATIVO", "AÇÃO"],
           rows: [
@@ -30,6 +30,29 @@ export const userApi = {
             { id: 14, name: "Rafaela", cpf: 55500066677, isActive: false }
           ]
         }
+
+        // resposta simulada de erro:
+        // status: 500,
+        // message: `Erro ao buscar usuários!`
+      }
+  
+      return response;
+    },
+
+    deleteUser: async function ( userId, cancel = false) {
+      // const response = await api.request({
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/delete?id=${userId}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+      //   method: "GET",
+      //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+      // })
+  
+      var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+        status: 200,
+        message: `usuário ${userId} deletado com sucesso!`
+
+        // resposta simulada de erro:
+        // status: 500,
+        // message: `Erro ao remover usuário ${userId}!`
       }
   
       return response;

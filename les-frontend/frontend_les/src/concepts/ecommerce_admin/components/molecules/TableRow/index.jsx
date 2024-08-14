@@ -5,7 +5,18 @@ import FormCheck from 'react-bootstrap/FormCheck';
 import { BsPencilSquare } from "react-icons/bs";
 import { IoTrashOutline } from "react-icons/io5";
 
-const TableRow = ({ rowContent }) => {
+const TableRow = ({ rowContent, onAlert, deleteFunction }) => {
+  const handleDelete = async () => {
+    try {
+      const response = await deleteFunction(rowContent.id);
+      onAlert({ status: response.status, message: response.message });
+    }
+    
+    catch (error) {
+      onAlert({ status: 500, message: `Erro ao deletar: ${error.message}` });
+    }
+  };
+
   return (<tr>
     {Object.entries(rowContent).map(([key, value]) => (
       <td key={key}>
@@ -21,8 +32,8 @@ const TableRow = ({ rowContent }) => {
       </td>
     ))}
     <td className={styles.actionsCell}>
-      <BsPencilSquare className={styles.editIcon}/>
-      <IoTrashOutline className={styles.deleteIcon}/>
+      <a href={`${window.location.pathname}/edit?id=${rowContent.id}`}><BsPencilSquare className={styles.editIcon}/></a>
+      <IoTrashOutline className={styles.deleteIcon} onClick={handleDelete}/>
     </td>
   </tr>)
 }

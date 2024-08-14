@@ -10,6 +10,7 @@ import { userApi } from '../../../../../apis/usersApi';
 const UserForm = () => {
   const [users, setUsers] = useState(null);
   const [alert, setAlert] = useState(null);
+  const handleAlert = (alert) => setAlert(alert);
 
   useEffect(() => {
     (async () => {
@@ -20,8 +21,8 @@ const UserForm = () => {
         } else {
           setAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
         }
-      } catch (err) {
-        setAlert({status: 500, message: `Erro: ${err.message}`});
+      } catch (error) {
+        setAlert({status: 500, message: `Erro: ${error.message}`});
       }
     })();
   }, []);
@@ -32,7 +33,7 @@ const UserForm = () => {
       {alert && <Alert variant={alert.status === 200 ? "success" : "danger"}>
         {alert.message}
       </Alert>}
-      {users && (<TableBox content={users}/>)}
+      {users && (<TableBox content={users} onAlert={handleAlert} deleteFunction={userApi.deleteUser}/>)}
     </div>
     <Footer/>
   </>)
