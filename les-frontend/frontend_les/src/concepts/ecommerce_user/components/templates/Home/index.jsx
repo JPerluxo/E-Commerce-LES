@@ -3,7 +3,7 @@ import styles from './index.module.css';
 
 import Header from '../../../../shared/components/organisms/Header';
 import Carousel from '../../molecules/Carousel';
-import Alert from 'react-bootstrap/Alert';
+import Alert from '../../../../shared/components/molecules/Alert';
 import ProductsBox from '../../organisms/ProductsBox';
 import Footer from '../../../../shared/components/molecules/Footer';
 
@@ -15,9 +15,7 @@ const Home = () => {
     <Header isUser/>
     <Carousel/>
     {alert && <div className={styles.alertDiv}>
-      <Alert variant={alert.status === 200 ? "success" : "danger"}>
-        {alert.message}
-      </Alert>
+      <Alert status={alert.status} message={alert.message} onClose={() => setAlert(null)}/>
     </div>}
     <ProductsBox onAlert={handleAlert}/>
     <Footer/>

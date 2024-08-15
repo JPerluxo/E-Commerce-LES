@@ -2,9 +2,9 @@
 //import { defineCancelApiObject } from './configs/axiosUtils';
 
 export const userApi = {
-    getUsers: async function ( cancel = false) {
+    getUsersTable: async function ( cancel = false) {
       // const response = await api.request({
-      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/all`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/table`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
       //   method: "GET",
       //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
       // })

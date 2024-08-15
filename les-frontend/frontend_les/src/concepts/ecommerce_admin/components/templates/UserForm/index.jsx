@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import Header from '../../../../shared/components/organisms/Header';
 import Footer from '../../../../shared/components/molecules/Footer';
 import TableBox from '../../organisms/TableBox';
-import Alert from 'react-bootstrap/Alert';
+import Alert from '../../../../shared/components/molecules/Alert';
 import { userApi } from '../../../../../apis/usersApi';
 
 const UserForm = () => {
@@ -15,7 +15,7 @@ const UserForm = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await userApi.getUsers();
+        const response = await userApi.getUsersTable();
         if (response.status === 200) {
           setUsers(response.data);
         } else {
@@ -30,9 +30,7 @@ const UserForm = () => {
   return (<>
     <Header/>
     <div className={styles.tableBox}>
-      {alert && <Alert variant={alert.status === 200 ? "success" : "danger"}>
-        {alert.message}
-      </Alert>}
+      {alert && <Alert status={alert.status} message={alert.message} onClose={() => setAlert(null)}/>}
       {users && (<TableBox content={users} onAlert={handleAlert} deleteFunction={userApi.deleteUser}/>)}
     </div>
     <Footer/>
