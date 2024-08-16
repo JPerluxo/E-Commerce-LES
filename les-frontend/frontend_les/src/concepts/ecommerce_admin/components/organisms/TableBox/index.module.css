@@ -12,3 +12,9 @@
 .tableDiv td {
     vertical-align: middle;
 }
+
+@media screen and ((max-width: 768px)) {
+    .tableDiv {
+      overflow-x: scroll;
+    }
+}

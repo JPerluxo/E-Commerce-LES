@@ -1,0 +1,12 @@
+.tableToolbar {
+    display: flex;
+    gap: 2vh;
+    margin-bottom: 1rem;
+    width: 75%;
+}
+
+@media screen and ((max-width: 768px)) {
+    .tableToolbar {
+        width: auto;
+    }
+}

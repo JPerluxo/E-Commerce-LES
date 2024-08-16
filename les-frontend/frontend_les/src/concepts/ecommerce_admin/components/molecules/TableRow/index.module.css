@@ -17,3 +17,9 @@
     cursor: pointer;
     transform: translateY(-5px);
 }
+
+@media screen and ((max-width: 768px)) {
+    .editIcon {
+      margin: 0;
+    }
+}

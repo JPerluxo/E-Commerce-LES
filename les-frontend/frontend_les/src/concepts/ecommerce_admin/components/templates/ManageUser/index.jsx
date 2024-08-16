@@ -7,7 +7,7 @@ import TableBox from '../../organisms/TableBox';
 import Alert from '../../../../shared/components/molecules/Alert';
 import { userApi } from '../../../../../apis/usersApi';
 
-const UserForm = () => {
+const ManageUser = () => {
   const [users, setUsers] = useState(null);
   const [alert, setAlert] = useState(null);
   const handleAlert = (alert) => setAlert(alert);
@@ -31,10 +31,10 @@ const UserForm = () => {
     <Header/>
     <div className={styles.tableBox}>
       {alert && <Alert status={alert.status} message={alert.message} onClose={() => setAlert(null)}/>}
-      {users && (<TableBox content={users} onAlert={handleAlert} deleteFunction={userApi.deleteUser}/>)}
+      {users && (<TableBox content={users} onAlert={handleAlert} deleteFunction={userApi.deleteUser} filterProperty="name"/>)}
     </div>
     <Footer/>
   </>)
 }
 
-export default UserForm;
+export default ManageUser;

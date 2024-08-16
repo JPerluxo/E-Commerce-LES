@@ -10,7 +10,7 @@ const MenuBox = () => {
   return (
     <div className={styles.menu}>
       <ul className={styles.menuBox}>
-        <MenuItem link="./userForm" image={GerenciarClientePng} text="Gerenciar Cliente"/>
+        <MenuItem link="./manageUser" image={GerenciarClientePng} text="Gerenciar Cliente"/>
         <MenuItem link="./productForm" image={GerenciarProdutoPng} text="Gerenciar Produto"/>
         <MenuItem link="./coupomForm" image={GerenciarCupomPng} text="Gerenciar Cupom"/>
       </ul>

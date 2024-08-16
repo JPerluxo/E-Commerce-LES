@@ -1,0 +1,10 @@
+.tableBox {
+    margin-top: 14vh;
+    padding: 3rem;
+}
+
+@media screen and ((max-width: 768px)) {
+    .tableBox {
+      margin-top: 28vh;
+    }
+}
