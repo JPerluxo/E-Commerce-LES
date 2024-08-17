@@ -56,6 +56,73 @@ export const userApi = {
       }
   
       return response;
+    },
+
+    getUserById: async function ( userId, cancel = false) {
+      // const response = await api.request({
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/getById?id=${userId}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+      //   method: "GET",
+      //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+      // })
+  
+      var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+        status: 200,
+        data: {
+          name: "Jefferson",
+          cpf: 11122233344,
+          isActive: true,
+          gender: 1,
+          birthDate: "2001-02-07",
+          phones: [
+            {
+              id: 1,
+              number: "911112222",
+              type: 1,
+              ddd: "11"
+            },
+            {
+              id: 2,
+              number: "933334444",
+              type: 2,
+              ddd: "11"
+            }
+          ],
+          addresses: [
+            {
+              id: 1,
+              isDelivery: true,
+              isBilling: false,
+              streetType: "Rua",
+              street: "Rua de Teste",
+              number: 123,
+              neighborhood: "Vila Teste",
+              cep: "12345-678",
+              city: "Mogi das Cruzes",
+              state: "São Paulo",
+              country: "Brasil"
+            },
+            {
+              id: 2,
+              isDelivery: false,
+              isBilling: true,
+              streetType: "Rua",
+              street: "Rua Mockada",
+              number: 4567,
+              neighborhood: "Parque Mockado",
+              cep: "90123-456",
+              city: "Mogi das Cruzes",
+              state: "São Paulo",
+              country: "Brasil"
+            }
+          ]
+        }
+
+        // resposta simulada de erro:
+        // status: 500,
+        // message: `Erro ao buscar usuário ${userId}!`
+      }
+  
+      return response;
     }
   }
   

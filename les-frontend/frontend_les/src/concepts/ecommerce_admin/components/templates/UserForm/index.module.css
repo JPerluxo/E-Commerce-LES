@@ -1,0 +1,16 @@
+.formBox {
+    padding: 3rem;
+    margin: 0 25%;
+}
+
+.formBox h1 {
+    margin-bottom: 1rem;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+@media screen and ((max-width: 768px)) {
+    .formBox {
+      margin: 0;
+    }
+}
