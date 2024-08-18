@@ -35,13 +35,13 @@ const UserForm = ({ newForm = false }) => {
       {/*Novo Registro*/}
       {newForm && <>
         <h1>Novo Usuário</h1>
-        <UserFormBox/>
+        <UserFormBox setAlert={setAlert}/>
       </>}
 
       {/*Registro Existente*/}
       {!newForm && userData && <>
         <h1>Editar Usuário</h1>
-        <UserFormBox data={userData}/>
+        <UserFormBox data={userData} setAlert={setAlert}/>
       </>}
 
     </div>

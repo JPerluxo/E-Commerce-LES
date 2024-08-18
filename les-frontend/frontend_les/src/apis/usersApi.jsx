@@ -60,7 +60,7 @@ export const userApi = {
 
     getUserById: async function ( userId, cancel = false) {
       // const response = await api.request({
-      //   url: `${process.env.REACT_APP_BACKEND_URL}/getById?id=${userId}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/getById?id=${userId}`, //PROVAVELMENTE MUDAR QUANDO IMPLEMENTAR BACKEND
       //   method: "GET",
       //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
       // })
@@ -68,6 +68,7 @@ export const userApi = {
       var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
         status: 200,
         data: {
+          id: userId,
           name: "Jefferson",
           cpf: 11122233344,
           isActive: true,
@@ -94,7 +95,7 @@ export const userApi = {
               isBilling: false,
               streetType: "Rua",
               street: "Rua de Teste",
-              number: 123,
+              number: "123",
               neighborhood: "Vila Teste",
               cep: "12345-678",
               city: "Mogi das Cruzes",
@@ -122,6 +123,44 @@ export const userApi = {
         // message: `Erro ao buscar usuário ${userId}!`
       }
   
+      return response;
+    },
+
+    saveUser: async function ( userObject, cancel = false) {
+      // const response = await api.request({
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/save?userObject={userObject}`,
+      //   method: "POST",
+      //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+      // })
+  
+      var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+        status: 200,
+        message: `Usuário salvo com sucesso!`
+  
+        // resposta simulada de erro:
+        // status: 500,
+        // message: `Erro ao salvar usuário!`
+      }
+
+      return response;
+    },
+
+    editUser: async function ( userId, userObject, cancel = false) {
+      // const response = await api.request({
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/save?userId={userId}&userObject={userObject}`,
+      //   method: "POST",
+      //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+      // })
+  
+      var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+        status: 200,
+        message: `Usuário ${userId} alterado com sucesso!`
+  
+        // resposta simulada de erro:
+        // status: 500,
+        // message: `Erro ao salvar usuário!`
+      }
+
       return response;
     }
   }

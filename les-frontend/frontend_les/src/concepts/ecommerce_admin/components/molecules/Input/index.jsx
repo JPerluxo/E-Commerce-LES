@@ -3,7 +3,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-const Input = ({ id, label, type,  placeholder, checked, onChange, value, disabled = false }) => {
+const Input = ({ id, label, type,  placeholder, checked, onChange, maxLenght, value, disabled = false }) => {
   return (<>
     {type === 'checkbox' ? (
       <InputGroup className="mb-3" id={id}>
@@ -25,6 +25,7 @@ const Input = ({ id, label, type,  placeholder, checked, onChange, value, disabl
           name={`Input_${id}`} 
           id={`Input_${id}`}
           placeholder={placeholder} 
+          maxLength={maxLenght}
           defaultValue={value} 
           onChange={onChange}
           disabled={disabled} 

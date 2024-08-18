@@ -35,7 +35,7 @@ export const bookApi = {
 
   bookToCart: async function ( cartObject, cancel = false) {
     // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/toCart?bookId=${cartObject.bookId}&bookQuantity=${cartObject.bookQuantity}&purchaseStatus=${cartObject.purchaseStatus}&bookValue=${cartObject.bookValue}&clientId=${cartObject.clientId}`,
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/book/toCart?cartObject=${cartObject}`,
     //   method: "POST",
     //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
     // })
