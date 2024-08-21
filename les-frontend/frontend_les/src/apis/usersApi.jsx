@@ -115,6 +115,24 @@ export const userApi = {
               state: "São Paulo",
               country: "Brasil"
             }
+          ],
+          creditCards: [
+            {
+              id: 1,
+              name: "JEFFERSON P. CLEMENTE",
+              number: "1234 5678 9012 1234",
+              cvv: "123",
+              dueDate: "2030-08",
+              flag: "1"
+            },
+            {
+              id: 2,
+              name: "TESTE M. OCKADO",
+              number: "5678 9012 3456 7890",
+              cvv: "456",
+              dueDate: "2099-02",
+              flag: "3"
+            }
           ]
         }
 

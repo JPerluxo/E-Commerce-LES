@@ -7,6 +7,7 @@ import Input from '../../molecules/Input';
 import Select from '../../molecules/Select';
 import PhoneInput from '../../molecules/PhoneInput';
 import AddressInput from '../../molecules/AddressInput';
+import CreditCardInput from '../../molecules/CreditCardInput';
 import { userApi } from '../../../../../apis/usersApi';
 
 const UserFormBox = ({ data, setAlert }) => {
@@ -17,16 +18,20 @@ const UserFormBox = ({ data, setAlert }) => {
   const [birthDate, setBirthDate] = useState(data ? data.birthDate : '');
     
   const [phones, setPhones] = useState(data ? data.phones : [{ id: Date.now(), type: "1", ddd: "", number: "" }]);
-  const addPhone = () => setPhones([...phones, { id: Date.now(), type: "1", ddd: "", number: "" }]);
+  const addPhone = () => setPhones([...phones, { id: Date.now(), type: "", ddd: "", number: "" }]);
   const removePhone = (id) => { if (phones.length > 1) setPhones(phones.filter(phone => phone.id !== id)) };
 
   const [addresses, setAddresses] = useState(data ? data.addresses : [{ id: Date.now(), isDelivery: false, isBilling: false, streetType: "", street: "", number: "", neighborhood: "", cep: "", city: "", state: "", country: "" }]);
   const addAddress = () => setAddresses([...addresses, { id: Date.now(), isDelivery: false, isBilling: false, streetType: "", street: "", number: "", neighborhood: "", cep: "", city: "", state: "", country: "" }]);
   const removeAddress = (id) => { if (addresses.length > 1) setAddresses(addresses.filter(address => address.id !== id)) };
 
+  const [creditCards, setCreditCards] = useState(data ? data.creditCards : [{ id: Date.now(), cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
+  const addCreditCard = () => setCreditCards([...creditCards, { id: Date.now(), cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
+  const removeCreditCard = (id) => { if (creditCards.length > 1) setCreditCards(creditCards.filter(creditCard => creditCard.id !== id)) };
+
   const handleSave = async () => {
     try {
-      const userObject = { name, cpf, isActive, gender, birthDate, phones, addresses };
+      const userObject = { name, cpf, isActive, gender, birthDate, phones, addresses, creditCards };
       
       if(data) {
         const response = await userApi.editUser(data.id, userObject);
@@ -72,6 +77,13 @@ const UserFormBox = ({ data, setAlert }) => {
           ))}
           <Button variant="outline-secondary" onClick={() => addAddress()}>Novo Endereço</Button>
         </div>
+        <div className={styles.creditCardsDiv}>
+          <h3>Cartões de Crédito</h3>
+          {creditCards.map(creditCard => (<CreditCardInput key={creditCard.id} id={`creditCardInput_${creditCard.id}`} removeFunction={() => removeCreditCard(creditCard.id)} onChange={(field, value) => {
+            setCreditCards(creditCards.map(c => c.id === creditCard.id ? { ...c, [field]: value } : c));
+          }}/>))}
+          <Button variant="outline-secondary" onClick={() => addCreditCard()}>Novo Cartão</Button>
+        </div>
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
           <Button variant="secondary" href="../manageUser">Voltar</Button>
@@ -114,6 +126,25 @@ const UserFormBox = ({ data, setAlert }) => {
             />
           ))}
           <Button variant="outline-secondary" onClick={() => addAddress()}>Novo Endereço</Button>
+        </div>
+        <div className={styles.creditCardsDiv}>
+          <h3>Cartões de Crédito</h3>
+          {creditCards.map(creditCard => (
+            <CreditCardInput
+              key={creditCard.id}
+              id={`creditCardInput_${creditCard.id}`}
+              cardName={creditCard.name}
+              cardNum={creditCard.number}
+              cardCvv={creditCard.cvv}
+              cardDueDate={creditCard.dueDate}
+              flag={creditCard.flag}
+              removeFunction={() => removeCreditCard(creditCard.id)}
+              onChange={(field, value) => {
+                setCreditCards(creditCards.map(c => c.id === creditCard.id ? { ...c, [field]: value } : c));
+              }}
+            />
+          ))}
+          <Button variant="outline-secondary" onClick={() => addCreditCard()}>Novo Cartão</Button>
         </div>
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
