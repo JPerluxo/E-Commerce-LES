@@ -16,6 +16,7 @@ const UserFormBox = ({ data, setAlert }) => {
   const [isActive, setIsActive] = useState(data ? data.isActive : true);
   const [gender, setGender] = useState(data ? data.gender : '');
   const [birthDate, setBirthDate] = useState(data ? data.birthDate : '');
+  const [password, setPassword] = useState(data ? data.password : '');
     
   const [phones, setPhones] = useState(data ? data.phones : [{ id: Date.now(), type: "1", ddd: "", number: "" }]);
   const addPhone = () => setPhones([...phones, { id: Date.now(), type: "", ddd: "", number: "" }]);
@@ -31,7 +32,7 @@ const UserFormBox = ({ data, setAlert }) => {
 
   const handleSave = async () => {
     try {
-      const userObject = { name, cpf, isActive, gender, birthDate, phones, addresses, creditCards };
+      const userObject = { name, cpf, isActive, gender, birthDate, password, phones, addresses, creditCards };
       
       if(data) {
         const response = await userApi.editUser(data.id, userObject);
@@ -56,6 +57,7 @@ const UserFormBox = ({ data, setAlert }) => {
         <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={isActive} onChange={() => setIsActive(!isActive)}/>
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
+        <Input id="passwordInput" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <div className={styles.phonesDiv}>
           <h3>Telefones</h3>
           {phones.map(phone => (<PhoneInput key={phone.id} id={`phoneInput_${phone.id}`} removeFunction={() => removePhone(phone.id)} onChange={(field, value) => {
@@ -96,6 +98,7 @@ const UserFormBox = ({ data, setAlert }) => {
         <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={data.isActive} onChange={() => setIsActive(!isActive)}/>
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={data.gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={data.birthDate} onChange={(e) => setBirthDate(e.target.value)} disabled/>
+        <Input id="passwordInput" label="Senha" type="password" value={data.password} onChange={(e) => setPassword(e.target.value)}/>
         <div className={styles.phonesDiv}>
           <h3>Telefones</h3>
           {phones.map(phone => <PhoneInput key={phone.id} id={`phoneInput_${phone.id}`} selectValue={phone.type} dddValue={phone.ddd} inputValue={phone.number} removeFunction={() => removePhone(phone.id)} onChange={(field, value) => {

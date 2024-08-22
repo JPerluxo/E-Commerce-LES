@@ -74,6 +74,7 @@ export const userApi = {
           isActive: true,
           gender: 1,
           birthDate: "2001-02-07",
+          password: "teste123",
           phones: [
             {
               id: 1,
