@@ -164,9 +164,9 @@ export const userApi = {
       return response;
     },
 
-    editUser: async function ( userId, userObject, cancel = false) {
+    updateUser: async function ( userId, userObject, cancel = false) {
       // const response = await api.request({
-      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/save?userId={userId}&userObject={userObject}`,
+      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/update?userId={userId}&userObject={userObject}`,
       //   method: "POST",
       //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
       // })

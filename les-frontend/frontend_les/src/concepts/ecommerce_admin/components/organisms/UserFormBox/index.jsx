@@ -35,7 +35,7 @@ const UserFormBox = ({ data, setAlert }) => {
       const userObject = { name, cpf, isActive, gender, birthDate, password, phones, addresses, creditCards };
       
       if(data) {
-        const response = await userApi.editUser(data.id, userObject);
+        const response = await userApi.updateUser(data.id, userObject);
         setAlert({ status: response.status, message: response.message });
       }
       else {
