@@ -35,7 +35,7 @@ DO $$
             cli_genero VARCHAR(15) NOT NULL,
             cli_data_nascimento DATE NOT NULL,
             cli_cpf VARCHAR(12) NOT NULL,
-            cli_email VARCHAR(50) NOT NULL,
+            cli_status BOOLEAN NOT NULL,
             cli_senha VARCHAR(50) NOT NULL
         );
 
