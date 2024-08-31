@@ -57,7 +57,7 @@ DO $$
             crt_numero VARCHAR(50) NOT NULL,
             crt_nome_impresso VARCHAR(50) NOT NULL,
             crt_codigo_seguranca VARCHAR(50) NOT NULL,
-            crt_esta_ativo CHAR(1) NOT NULL,
+            crt_esta_ativo BOOLEAN NOT NULL,
             crt_bnd_id INTEGER NOT NULL,
             crt_cli_id INTEGER NOT NULL,
             CONSTRAINT cartoesdecredito_bandeirascartao_fk FOREIGN KEY (crt_bnd_id) REFERENCES bandeiras_cartao (bnd_id),
@@ -240,7 +240,7 @@ DO $$
             cpd_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             cpd_codigo VARCHAR(50) NOT NULL,
             cpd_valor NUMERIC(10, 2) NOT NULL,
-            cpd_utilizado CHAR(1) NOT NULL,
+            cpd_utilizado BOOLEAN NOT NULL,
             cpd_tipo VARCHAR(50) NOT NULL,
             cpd_cli_id INTEGER NOT NULL,
             CONSTRAINT cupons_cliente_fk FOREIGN KEY (cpd_cli_id) REFERENCES clientes (cli_id)
@@ -248,8 +248,8 @@ DO $$
 
         CREATE TABLE public.enderecos (
             end_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-            end_entrega CHAR(1) NOT NULL,
-            end_cobranca CHAR(1) NOT NULL,
+            end_entrega BOOLEAN NOT NULL,
+            end_cobranca BOOLEAN NOT NULL,
             end_tipo_logradouro VARCHAR(50) NOT NULL,
             end_logradouro VARCHAR(50) NOT NULL,
             end_numero VARCHAR(20) NOT NULL,
