@@ -1,5 +1,5 @@
-//import { api } from './configs/axiosConfig';
-//import { defineCancelApiObject } from './configs/axiosUtils';
+import { api } from './configs/axiosConfig';
+import { defineCancelApiObject } from './configs/axiosUtils';
 
 export const userApi = {
     getUsersTable: async function ( cancel = false) {
@@ -120,6 +120,7 @@ export const userApi = {
           creditCards: [
             {
               id: 1,
+              isActive: true,
               name: "JEFFERSON P. CLEMENTE",
               number: "1234 5678 9012 1234",
               cvv: "123",
@@ -128,6 +129,7 @@ export const userApi = {
             },
             {
               id: 2,
+              isActive: false,
               name: "TESTE M. OCKADO",
               number: "5678 9012 3456 7890",
               cvv: "456",
@@ -146,20 +148,13 @@ export const userApi = {
     },
 
     saveUser: async function ( userObject, cancel = false) {
-      // const response = await api.request({
-      //   url: `${process.env.REACT_APP_BACKEND_URL}/user/save?userObject={userObject}`,
-      //   method: "POST",
-      //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
-      // })
-  
-      var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
-        status: 200,
-        message: `Usuário salvo com sucesso!`
-  
-        // resposta simulada de erro:
-        // status: 500,
-        // message: `Erro ao salvar usuário!`
-      }
+      const response = await api.request({
+        url: `${process.env.REACT_APP_BACKEND_URL}/user/save`,
+        method: "POST",
+        data: JSON.stringify(userObject),
+        headers: { 'Content-Type': 'application/json' },
+        signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+      })
 
       return response;
     },
@@ -184,5 +179,5 @@ export const userApi = {
     }
   }
   
-  //const cancelApiObject = defineCancelApiObject(userApi)
+  const cancelApiObject = defineCancelApiObject(userApi)
   

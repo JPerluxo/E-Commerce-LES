@@ -26,11 +26,12 @@ const UserFormBox = ({ data, setAlert }) => {
   const addAddress = () => setAddresses([...addresses, { id: Date.now(), isDelivery: false, isBilling: false, streetType: "", street: "", number: "", neighborhood: "", cep: "", city: "", state: "", country: "" }]);
   const removeAddress = (id) => { if (addresses.length > 1) setAddresses(addresses.filter(address => address.id !== id)) };
 
-  const [creditCards, setCreditCards] = useState(data ? data.creditCards : [{ id: Date.now(), cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
-  const addCreditCard = () => setCreditCards([...creditCards, { id: Date.now(), cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
+  const [creditCards, setCreditCards] = useState(data ? data.creditCards : [{ id: Date.now(), isActive: true, cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
+  const addCreditCard = () => setCreditCards([...creditCards, { id: Date.now(), isActive: true, cardName: "", cardNum: "", cardDueDate: "", flag: "", cvv: "" }]);
   const removeCreditCard = (id) => { if (creditCards.length > 1) setCreditCards(creditCards.filter(creditCard => creditCard.id !== id)) };
 
   const handleSave = async () => {
+    const removeId = (items) => items.map(({ id, ...rest }) => rest);
     try {
       const userObject = { name, cpf, isActive, gender, birthDate, password, phones, addresses, creditCards };
       
@@ -39,7 +40,7 @@ const UserFormBox = ({ data, setAlert }) => {
         setAlert({ status: response.status, message: response.message });
       }
       else {
-        const response = await userApi.saveUser(userObject);
+        const response = await userApi.saveUser({ ...userObject, phones: removeId(phones), addresses: removeId(addresses), creditCards: removeId(creditCards) });
         setAlert({ status: response.status, message: response.message });
       }
     }
@@ -58,6 +59,7 @@ const UserFormBox = ({ data, setAlert }) => {
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
         <Input id="passwordInput" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+
         <div className={styles.phonesDiv}>
           <h3>Telefones</h3>
           {phones.map(phone => (<PhoneInput key={phone.id} id={`phoneInput_${phone.id}`} removeFunction={() => removePhone(phone.id)} onChange={(field, value) => {
@@ -65,6 +67,7 @@ const UserFormBox = ({ data, setAlert }) => {
           }}/>))}
           <Button variant="outline-secondary" onClick={() => addPhone()}>Novo Telefone</Button>
         </div>
+
         <div className={styles.addressesDiv}>
           <h3>Endereços</h3>
           {addresses.map(address => (
@@ -79,13 +82,22 @@ const UserFormBox = ({ data, setAlert }) => {
           ))}
           <Button variant="outline-secondary" onClick={() => addAddress()}>Novo Endereço</Button>
         </div>
+
         <div className={styles.creditCardsDiv}>
           <h3>Cartões de Crédito</h3>
-          {creditCards.map(creditCard => (<CreditCardInput key={creditCard.id} id={`creditCardInput_${creditCard.id}`} removeFunction={() => removeCreditCard(creditCard.id)} onChange={(field, value) => {
-            setCreditCards(creditCards.map(c => c.id === creditCard.id ? { ...c, [field]: value } : c));
-          }}/>))}
+          {creditCards.map(creditCard => (
+            <CreditCardInput
+              key={creditCard.id}
+              id={`creditCardInput_${creditCard.id}`}
+              onChange={(field, value) => {
+                setCreditCards(creditCards.map(c => c.id === creditCard.id ? { ...c, [field]: value } : c));
+              }}
+              removeFunction={() => removeCreditCard(creditCard.id)}
+            />
+          ))}
           <Button variant="outline-secondary" onClick={() => addCreditCard()}>Novo Cartão</Button>
         </div>
+
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
           <Button variant="secondary" href="../manageUser">Voltar</Button>
@@ -99,6 +111,7 @@ const UserFormBox = ({ data, setAlert }) => {
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={data.gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={data.birthDate} onChange={(e) => setBirthDate(e.target.value)} disabled/>
         <Input id="passwordInput" label="Senha" type="password" value={data.password} onChange={(e) => setPassword(e.target.value)}/>
+
         <div className={styles.phonesDiv}>
           <h3>Telefones</h3>
           {phones.map(phone => <PhoneInput key={phone.id} id={`phoneInput_${phone.id}`} selectValue={phone.type} dddValue={phone.ddd} inputValue={phone.number} removeFunction={() => removePhone(phone.id)} onChange={(field, value) => {
@@ -106,6 +119,7 @@ const UserFormBox = ({ data, setAlert }) => {
           }}/>)}
           <Button variant="outline-secondary" onClick={() => addPhone()}>Novo Telefone</Button>
         </div>
+
         <div className={styles.addressesDiv}>
           <h3>Endereços</h3>
           {addresses.map(address => (
@@ -130,12 +144,14 @@ const UserFormBox = ({ data, setAlert }) => {
           ))}
           <Button variant="outline-secondary" onClick={() => addAddress()}>Novo Endereço</Button>
         </div>
+
         <div className={styles.creditCardsDiv}>
           <h3>Cartões de Crédito</h3>
           {creditCards.map(creditCard => (
             <CreditCardInput
               key={creditCard.id}
               id={`creditCardInput_${creditCard.id}`}
+              isActiveChecked={creditCard.isActive}
               cardName={creditCard.name}
               cardNum={creditCard.number}
               cardCvv={creditCard.cvv}
@@ -149,6 +165,7 @@ const UserFormBox = ({ data, setAlert }) => {
           ))}
           <Button variant="outline-secondary" onClick={() => addCreditCard()}>Novo Cartão</Button>
         </div>
+
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
           <Button variant="secondary" href="../manageUser">Voltar</Button>

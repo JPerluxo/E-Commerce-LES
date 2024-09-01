@@ -7,12 +7,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const CreditCardInput = ({ onChange, cardName, cardNum, cardDueDate, flag, cardCvv, removeFunction }) => {
+const CreditCardInput = ({ id, isActiveChecked, onChange, cardName, cardNum, cardDueDate, flag, cardCvv, removeFunction }) => {
   const [selectedFlag, setSelectedFlag] = useState(flag || '');
   const flags = [{id: 1, name: "VISA"}, {id: 2, name: "MasterCard"}, {id: 3, name: "American Express"}];
 
   return (
     <div className={`mb-3 ${styles.creditCardInputDiv}`}>
+      <Form.Check inline label="Ativo" type="checkbox" defaultChecked={isActiveChecked} id={`isActiveCheckbox_${id}`} onChange={(e) => onChange('isActive', e.target.checked)}/>
       <FloatingLabel label="Nome no Cartão" className="mb-2">
         <Form.Control type="text" defaultValue={cardName} onChange={(e) => onChange('cardName', e.target.value)}/>
       </FloatingLabel>
