@@ -8,5 +8,7 @@ app.use(cors());
 app.get('/', (req, res) => res.send('Server OK!'));
 
 // Controllers
+const userController = require('./src/controllers/userController');
+app.use('/user', userController);
 
 module.exports = app;
