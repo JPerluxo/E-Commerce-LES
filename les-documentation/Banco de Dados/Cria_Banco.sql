@@ -57,6 +57,7 @@ DO $$
             crt_numero VARCHAR(50) NOT NULL,
             crt_nome_impresso VARCHAR(50) NOT NULL,
             crt_codigo_seguranca VARCHAR(50) NOT NULL,
+            crt_data_vencimento DATE NOT NULL,
             crt_esta_ativo BOOLEAN NOT NULL,
             crt_bnd_id INTEGER NOT NULL,
             crt_cli_id INTEGER NOT NULL,
