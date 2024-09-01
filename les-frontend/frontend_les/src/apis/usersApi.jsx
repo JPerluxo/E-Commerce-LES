@@ -100,7 +100,7 @@ export const userApi = {
               neighborhood: "Vila Teste",
               cep: "12345-678",
               city: "Mogi das Cruzes",
-              state: "São Paulo",
+              state: "SP",
               country: "Brasil"
             },
             {
@@ -113,7 +113,7 @@ export const userApi = {
               neighborhood: "Parque Mockado",
               cep: "90123-456",
               city: "Mogi das Cruzes",
-              state: "São Paulo",
+              state: "SP",
               country: "Brasil"
             }
           ],

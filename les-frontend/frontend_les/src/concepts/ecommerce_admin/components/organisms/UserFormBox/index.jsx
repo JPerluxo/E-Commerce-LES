@@ -26,8 +26,8 @@ const UserFormBox = ({ data, setAlert }) => {
   const addAddress = () => setAddresses([...addresses, { id: Date.now(), isDelivery: false, isBilling: false, streetType: "", street: "", number: "", neighborhood: "", cep: "", city: "", state: "", country: "" }]);
   const removeAddress = (id) => { if (addresses.length > 1) setAddresses(addresses.filter(address => address.id !== id)) };
 
-  const [creditCards, setCreditCards] = useState(data ? data.creditCards : [{ id: Date.now(), isActive: true, name: "", number: "", dueDate: "", flag: "", cvv: "" }]);
-  const addCreditCard = () => setCreditCards([...creditCards, { id: Date.now(), isActive: true, name: "", number: "", dueDate: "", flag: "", cvv: "" }]);
+  const [creditCards, setCreditCards] = useState(data ? data.creditCards : [{ id: Date.now(), isActive: false, name: "", number: "", dueDate: "", flag: "", cvv: "" }]);
+  const addCreditCard = () => setCreditCards([...creditCards, { id: Date.now(), isActive: false, name: "", number: "", dueDate: "", flag: "", cvv: "" }]);
   const removeCreditCard = (id) => { if (creditCards.length > 1) setCreditCards(creditCards.filter(creditCard => creditCard.id !== id)) };
 
   const handleSave = async () => {

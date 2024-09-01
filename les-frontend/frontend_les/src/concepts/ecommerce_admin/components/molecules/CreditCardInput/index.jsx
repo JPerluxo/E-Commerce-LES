@@ -15,7 +15,7 @@ const CreditCardInput = ({ id, isActiveChecked, onChange, cardName, cardNum, car
     <div className={`mb-3 ${styles.creditCardInputDiv}`}>
       <Form.Check inline label="Ativo" type="checkbox" defaultChecked={isActiveChecked} id={`isActiveCheckbox_${id}`} onChange={(e) => onChange('isActive', e.target.checked)}/>
       <FloatingLabel label="Nome no Cartão" className="mb-2">
-        <Form.Control type="text" defaultValue={cardName} onChange={(e) => onChange('name', e.target.value)}/>
+        <Form.Control type="text" defaultValue={cardName} id={`isActiveCheckbox_${id}`} onChange={(e) => onChange('name', e.target.value)}/>
       </FloatingLabel>
       <Row className="g-2">
         <Col md>
