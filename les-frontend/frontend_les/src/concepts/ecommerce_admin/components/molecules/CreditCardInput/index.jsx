@@ -15,24 +15,24 @@ const CreditCardInput = ({ id, isActiveChecked, onChange, cardName, cardNum, car
     <div className={`mb-3 ${styles.creditCardInputDiv}`}>
       <Form.Check inline label="Ativo" type="checkbox" defaultChecked={isActiveChecked} id={`isActiveCheckbox_${id}`} onChange={(e) => onChange('isActive', e.target.checked)}/>
       <FloatingLabel label="Nome no Cartão" className="mb-2">
-        <Form.Control type="text" defaultValue={cardName} onChange={(e) => onChange('cardName', e.target.value)}/>
+        <Form.Control type="text" defaultValue={cardName} onChange={(e) => onChange('name', e.target.value)}/>
       </FloatingLabel>
       <Row className="g-2">
         <Col md>
           <FloatingLabel label="Nº do Cartão">
-            <Form.Control type="text" defaultValue={cardNum} maxLength="19" onChange={(e) => onChange('cardNum', e.target.value)}/>
+            <Form.Control type="text" defaultValue={cardNum} maxLength="19" onChange={(e) => onChange('number', e.target.value)}/>
           </FloatingLabel>
         </Col>
         <Col md>
           <FloatingLabel label="CVV" className="mb-2">
-            <Form.Control type="text" defaultValue={cardCvv} maxLength="3" onChange={(e) => onChange('cardCvv', e.target.value)}/>
+            <Form.Control type="text" defaultValue={cardCvv} maxLength="3" onChange={(e) => onChange('cvv', e.target.value)}/>
           </FloatingLabel>
         </Col>
       </Row>
       <Row className="g-2">
         <Col md>
           <FloatingLabel label="Data de vencimento">
-            <Form.Control type="month" defaultValue={cardDueDate} onChange={(e) => onChange('cardDueDate', e.target.value)}/>
+            <Form.Control type="month" defaultValue={cardDueDate} onChange={(e) => onChange('dueDate', e.target.value)}/>
           </FloatingLabel>
         </Col>
         <Col md>

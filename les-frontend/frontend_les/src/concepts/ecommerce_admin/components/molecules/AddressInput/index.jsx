@@ -73,7 +73,7 @@ const AddressInput = ({ id, onChange, isDeliveryChecked, isBillingChecked, stree
             <Form.Select aria-label="Seletor de estado" defaultValue={selectedState} onChange={(e) => {setSelectedState(e.target.value); onChange('state', e.target.value);}} disabled={!selectedCountry}>
               <option>Selecione</option>
               {states.map((state) => (
-                <option key={state} value={state}>{state}</option>
+                <option key={state.sigla} value={state.sigla}>{state.name}</option>
               ))}
             </Form.Select>
           </FloatingLabel>

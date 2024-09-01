@@ -156,7 +156,7 @@ export const userApi = {
         signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
       })
 
-      return response;
+      return response.data;
     },
 
     updateUser: async function ( userId, userObject, cancel = false) {
