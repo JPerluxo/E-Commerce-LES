@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 const CreditCardInput = ({ id, isActiveChecked, onChange, cardName, cardNum, cardDueDate, flag, cardCvv, removeFunction }) => {
   const [selectedFlag, setSelectedFlag] = useState(flag || '');
-  const flags = [{id: 1, name: "VISA"}, {id: 2, name: "MasterCard"}, {id: 3, name: "American Express"}];
+  const flags = [{id: 1, name: "VISA"}, {id: 2, name: "MasterCard"}, {id: 3, name: "Elo"}, {id: 3, name: "American Express"}];
 
   return (
     <div className={`mb-3 ${styles.creditCardInputDiv}`}>
