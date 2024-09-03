@@ -11,6 +11,10 @@ class ValidatePhonesStrategy {
                     throw new Error(`Os seguintes campos estão faltando no telefone: ${missingFields.join(', ')}.`);
                 }
 
+                if (!phone.number || !phone.type || !phone.ddd) {
+                    throw new Error('Todos os campos obrigatórios devem estar preenchidos.');
+                }
+
                 if (typeof phone.number !== 'string' || !/^\d{8,9}$/.test(phone.number)) {
                     throw new Error('O campo "Número" deve ser uma string de 8 ou 9 dígitos.');
                 }
@@ -35,7 +39,7 @@ class ValidatePhonesStrategy {
                 }
             });
         } catch (error) {
-            throw error;
+            throw `Telefones — ${error.message}`;
         }
     }
 }

@@ -55,7 +55,7 @@ class ValidateUserStrategy {
                 throw new Error('A senha deve ter pelo menos 8 caracteres, incluir letras maiúsculas, minúsculas e caracteres especiais.');
             }
         } catch (error) {
-            throw error;
+            throw error.message;
         }
     }
 }
