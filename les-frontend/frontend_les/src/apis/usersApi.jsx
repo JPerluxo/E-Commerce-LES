@@ -70,11 +70,11 @@ export const userApi = {
         data: {
           id: userId,
           name: "Jefferson",
-          cpf: 11122233344,
+          cpf: "11122233344",
           isActive: true,
           gender: 1,
           birthDate: "2001-02-07",
-          password: "teste123",
+          password: "Pituc@07",
           phones: [
             {
               id: 1,
@@ -109,7 +109,7 @@ export const userApi = {
               isBilling: true,
               streetType: "Rua",
               street: "Rua Mockada",
-              number: 4567,
+              number: "456",
               neighborhood: "Parque Mockado",
               cep: "90123-456",
               city: "Mogi das Cruzes",
@@ -125,7 +125,7 @@ export const userApi = {
               number: "1234 5678 9012 1234",
               cvv: "123",
               dueDate: "2030-08",
-              flag: "1"
+              flag: 1
             },
             {
               id: 2,
@@ -134,7 +134,7 @@ export const userApi = {
               number: "5678 9012 3456 7890",
               cvv: "456",
               dueDate: "2099-02",
-              flag: "3"
+              flag: 3
             }
           ]
         }
