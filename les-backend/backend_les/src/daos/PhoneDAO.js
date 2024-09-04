@@ -8,6 +8,18 @@ class PhoneDAO {
             throw error;
         }
     }
+
+    static async update(data, transaction = null) {
+        try {
+            const { id, ...fieldsToUpdate } = data;
+            return await Phone.update(fieldsToUpdate, {
+                where: { id: id },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = PhoneDAO;
