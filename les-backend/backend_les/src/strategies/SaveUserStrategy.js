@@ -4,7 +4,6 @@ const PhoneDAO = require('../daos/PhoneDAO');
 const AddressDAO = require('../daos/AddressDAO');
 const CreditCardDAO = require('../daos/CreditCardDAO');
 
-
 class SaveUserStrategy {
     static async execute(data) {
         const transaction = await sequelize.transaction();

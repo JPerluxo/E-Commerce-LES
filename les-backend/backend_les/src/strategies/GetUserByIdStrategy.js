@@ -16,8 +16,10 @@ class GetUserByIdStrategy {
 
             const userCreditCards = await CreditCardDAO.find('crt_cli_id', userId, transaction);
 
+            const data = {...user.dataValues, phones: userPhones, addresses: userAddresses, creditCards: userCreditCards}
+
             await transaction.commit();
-            return {...user.dataValues, phones: userPhones, addresses: userAddresses, creditCards: userCreditCards};
+            return { status: 200, data: data };
         } catch (error) {
             await transaction.rollback();
             throw error;
