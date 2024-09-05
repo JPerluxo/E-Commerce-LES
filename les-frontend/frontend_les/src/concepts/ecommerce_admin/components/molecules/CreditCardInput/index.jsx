@@ -32,7 +32,7 @@ const CreditCardInput = ({ id, isActiveChecked, onChange, cardName, cardNum, car
       <Row className="g-2">
         <Col md>
           <FloatingLabel label="Data de vencimento">
-            <Form.Control type="month" defaultValue={cardDueDate} onChange={(e) => onChange('dueDate', e.target.value)}/>
+            <Form.Control type="month" defaultValue={cardDueDate?.slice(0, 7)} onChange={(e) => onChange('dueDate', e.target.value)}/>
           </FloatingLabel>
         </Col>
         <Col md>

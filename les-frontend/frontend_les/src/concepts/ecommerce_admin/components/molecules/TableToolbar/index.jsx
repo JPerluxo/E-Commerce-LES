@@ -10,7 +10,7 @@ import { RiPlayListAddFill } from "react-icons/ri";
 
 const TableToolbar = ({ content, onFilter, filterProperty }) => {
   const [filterValue, setFilterValue] = useState('');
-  const placeholderText = (content.collumns[Object.keys(content.rows[0]).indexOf(filterProperty)] || filterProperty)
+  const placeholderText = ((content.rows?.length > 0 && content.collumns[Object.keys(content.rows[0]).indexOf(filterProperty)]) || filterProperty)
   .toLowerCase()
   .replace(/^\w/, c => c.toUpperCase()); //Substitui a primeira letra por maiúscula
 

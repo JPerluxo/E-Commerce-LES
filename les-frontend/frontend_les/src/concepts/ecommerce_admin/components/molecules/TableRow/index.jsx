@@ -10,6 +10,7 @@ const TableRow = ({ rowContent, onAlert, deleteFunction }) => {
     try {
       const response = await deleteFunction(rowContent.id);
       onAlert({ status: response.status, message: response.message });
+      setTimeout(() => window.location.reload(), 3000);
     }
     
     catch (error) {

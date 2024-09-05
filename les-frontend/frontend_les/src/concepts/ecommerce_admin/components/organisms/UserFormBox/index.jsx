@@ -43,10 +43,12 @@ const UserFormBox = ({ data, setAlert }) => {
         const response = await userApi.saveUser({ ...userObject, phones: removeId(phones), addresses: removeId(addresses), creditCards: removeId(creditCards) });
         setAlert({ status: response.status, message: response.message });
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     catch (error) {
       setAlert({ status: 500, message: `Erro ao ${!data ? "salvar" : "editar"} usuário: ${error.message}` });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
