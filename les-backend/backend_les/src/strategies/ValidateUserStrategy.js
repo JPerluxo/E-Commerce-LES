@@ -26,7 +26,8 @@ class ValidateUserStrategy {
                 throw new Error('O campo "Usuário Ativo?" deve ser um booleano.');
             }    
 
-            if (typeof data.gender !== 'number' || ![1, 2, 3].includes(data.gender)) {
+            const gender = parseInt(data.gender, 10);
+            if (isNaN(gender) || ![1, 2, 3].includes(gender)) {
                 throw new Error('O campo "Gênero" deve ter um valor válido.');
             }    
             else switch(data.gender) {

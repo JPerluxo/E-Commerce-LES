@@ -19,10 +19,11 @@ class ValidatePhonesStrategy {
                     throw new Error('O campo "Número" deve ser uma string de 8 ou 9 dígitos.');
                 }
 
-                if (typeof phone.type !== 'number' || ![1, 2].includes(phone.type)) {
+                const type = parseInt(phone.type, 10);
+                if (isNaN(type) || ![1, 2].includes(type)) {
                     throw new Error('O campo "Tipo" deve ter um valor válido.');
                 }
-                else switch(phone.type) {
+                else switch(type) {
                     case 1: {
                         phone.type = "Celular";
                         break;

@@ -35,7 +35,8 @@ class ValidateCreditCardsStrategy {
                     throw new Error('O campo "Ativo" deve ser um booleano.');
                 }
 
-                if (typeof creditCard.flag !== 'number' || ![1, 2, 3, 4].includes(creditCard.flag)) {
+                const flag = parseInt(creditCard.flag, 10);
+                if (isNaN(flag) || ![1, 2, 3, 4].includes(flag)) {
                     throw new Error('O campo "Bandeira" deve ter um valor válido.');
                 }
             });
