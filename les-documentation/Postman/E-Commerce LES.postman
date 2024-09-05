@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"userObject\": {\r\n        \"name\": \"Jefferson\",\r\n        \"cpf\": \"11122233344\",\r\n        \"isActive\": true,\r\n        \"gender\": 1,\r\n        \"birthDate\": \"2001-02-07\",\r\n        \"password\": \"Pituc@07\",\r\n        \"phones\": [\r\n            {\r\n                \"id\": 1,\r\n                \"number\": \"911112222\",\r\n                \"type\": 1,\r\n                \"ddd\": \"11\"\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"number\": \"933334444\",\r\n                \"type\": 2,\r\n                \"ddd\": \"11\"\r\n            }\r\n        ],\r\n        \"addresses\": [\r\n            {\r\n                \"id\": 1,\r\n                \"isDelivery\": true,\r\n                \"isBilling\": false,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua de Teste\",\r\n                \"number\": \"123\",\r\n                \"neighborhood\": \"Vila Teste\",\r\n                \"cep\": \"12345-678\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"isDelivery\": false,\r\n                \"isBilling\": true,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua Mockada\",\r\n                \"number\": \"4567\",\r\n                \"neighborhood\": \"Parque Mockado\",\r\n                \"cep\": \"90123-456\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            }\r\n        ],\r\n        \"creditCards\": [\r\n            {\r\n                \"id\": 1,\r\n                \"isActive\": true,\r\n                \"name\": \"JEFFERSON P. CLEMENTE\",\r\n                \"number\": \"1234 5678 9012 1234\",\r\n                \"cvv\": \"123\",\r\n                \"dueDate\": \"2030-08\",\r\n                \"flag\": 1\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"isActive\": false,\r\n                \"name\": \"TESTE M. OCKADO\",\r\n                \"number\": \"5678 9012 3456 7890\",\r\n                \"cvv\": \"456\",\r\n                \"dueDate\": \"2099-02\",\r\n                \"flag\": 3\r\n            }\r\n        ]\r\n    }\r\n}",
+							"raw": "{\r\n    \"userId\": \"31\",\r\n    \"userObject\": {\r\n        \"name\": \"Jefferson\",\r\n        \"cpf\": \"11122233344\",\r\n        \"isActive\": true,\r\n        \"gender\": 1,\r\n        \"birthDate\": \"2001-02-07\",\r\n        \"password\": \"Pituc@07\",\r\n        \"phones\": [\r\n            {\r\n                \"id\": 49,\r\n                \"number\": \"911112222\",\r\n                \"type\": 1,\r\n                \"ddd\": \"11\"\r\n            },\r\n            {\r\n                \"id\": 50,\r\n                \"number\": \"933334444\",\r\n                \"type\": 2,\r\n                \"ddd\": \"11\"\r\n            }\r\n        ],\r\n        \"addresses\": [\r\n            {\r\n                \"id\": 46,\r\n                \"isDelivery\": true,\r\n                \"isBilling\": false,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua de Teste\",\r\n                \"number\": \"123\",\r\n                \"neighborhood\": \"Vila Teste\",\r\n                \"cep\": \"12345-678\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            },\r\n            {\r\n                \"id\": 47,\r\n                \"isDelivery\": false,\r\n                \"isBilling\": true,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua Mockada\",\r\n                \"number\": \"4567\",\r\n                \"neighborhood\": \"Parque Mockado\",\r\n                \"cep\": \"90123-456\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            }\r\n        ],\r\n        \"creditCards\": [\r\n            {\r\n                \"id\": 21,\r\n                \"isActive\": true,\r\n                \"name\": \"JEFFERSON P. CLEMENTE\",\r\n                \"number\": \"1234 5678 9012 1234\",\r\n                \"cvv\": \"123\",\r\n                \"dueDate\": \"2030-08\",\r\n                \"flag\": 1\r\n            },\r\n            {\r\n                \"id\": 22,\r\n                \"isActive\": false,\r\n                \"name\": \"TESTE M. OCKADO\",\r\n                \"number\": \"5678 9012 3456 7890\",\r\n                \"cvv\": \"456\",\r\n                \"dueDate\": \"2099-02\",\r\n                \"flag\": 3\r\n            }\r\n        ]\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,6 +62,35 @@
 							"path": [
 								"user",
 								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"32\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/user/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"delete"
 							]
 						}
 					},
