@@ -20,6 +20,17 @@ class PhoneDAO {
             throw error;
         }
     }
+
+    static async delete(userId, transaction = null) {
+        try {
+            return await Phone.destroy({
+                where: { tel_cli_id: userId },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = PhoneDAO;

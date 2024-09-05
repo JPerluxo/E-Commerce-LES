@@ -20,6 +20,17 @@ class AddressDAO {
             throw error;
         }
     }
+
+    static async delete(userId, transaction = null) {
+        try {
+            return await Address.destroy({
+                where: { end_cli_id: userId },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = AddressDAO;

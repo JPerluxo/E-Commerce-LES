@@ -4,6 +4,8 @@ const ValidateAddressesStrategy = require('../strategies/ValidateAddressesStrate
 const ValidateCreditCardsStrategy = require('../strategies/ValidateCreditCardsStrategy');
 const SaveUserStrategy = require('../strategies/SaveUserStrategy');
 const UpdateUserStrategy = require('../strategies/UpdateUserStrategy');
+const CheckUserIfExistsStrategy = require('../strategies/CheckUserIfExistsStrategy');
+const DeleteUserStrategy = require('../strategies/DeleteUserStrategy');
 
 class UserService {
     static async saveUser(user) {
@@ -25,6 +27,15 @@ class UserService {
             await ValidateAddressesStrategy.execute(user.addresses);
             await ValidateCreditCardsStrategy.execute(user.creditCards);
             return await UpdateUserStrategy.execute(user);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async deleteUser(userId) {
+        try {
+            await CheckUserIfExistsStrategy.execute(userId);
+            return await DeleteUserStrategy.execute(userId);
         } catch (error) {
             throw error;
         }

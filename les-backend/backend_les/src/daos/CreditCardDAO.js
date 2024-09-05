@@ -20,6 +20,17 @@ class CreditCardDAO {
             throw error;
         }
     }
+
+    static async delete(userId, transaction = null) {
+        try {
+            return await CreditCard.destroy({
+                where: { crt_cli_id: userId },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = CreditCardDAO;

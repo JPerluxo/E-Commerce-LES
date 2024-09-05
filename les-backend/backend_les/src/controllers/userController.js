@@ -24,4 +24,15 @@ router.post('/update', async (req, res) => {
     }
 });
 
+router.post('/delete', async (req, res) => {
+    const userId = req.body.userId;
+
+    try {
+        const result = await UserService.deleteUser(userId);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao deletar usuário: ${error}`, status: 500 });
+    }
+});
+
 module.exports = router;

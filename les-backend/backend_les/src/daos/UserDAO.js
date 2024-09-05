@@ -20,6 +20,17 @@ class UserDAO {
             throw error;
         }
     }
+
+    static async delete(id, transaction = null) {
+        try {
+            return await User.destroy({
+                where: { id: id },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = UserDAO;
