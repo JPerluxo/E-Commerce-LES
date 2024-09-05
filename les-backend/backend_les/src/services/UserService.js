@@ -5,6 +5,9 @@ const ValidateCreditCardsStrategy = require('../strategies/ValidateCreditCardsSt
 const SaveUserStrategy = require('../strategies/SaveUserStrategy');
 const UpdateUserStrategy = require('../strategies/UpdateUserStrategy');
 const CheckUserIfExistsStrategy = require('../strategies/CheckUserIfExistsStrategy');
+const CheckPhonesIfExistsStrategy = require('../strategies/CheckPhonesIfExistsStrategy');
+const CheckAddressesIfExistsStrategy = require('../strategies/CheckAddressesIfExistsStrategy');
+const CheckCreditCardsIfExistsStrategy = require('../strategies/CheckCreditCardsIfExistsStrategy');
 const DeleteUserStrategy = require('../strategies/DeleteUserStrategy');
 const GetUserByIdStrategy = require('../strategies/GetUserByIdStrategy');
 
@@ -25,8 +28,11 @@ class UserService {
         try {
             await ValidateUserStrategy.execute(user);
             await ValidatePhonesStrategy.execute(user.phones);
+            await CheckPhonesIfExistsStrategy.execute(user.phones, user.id);
             await ValidateAddressesStrategy.execute(user.addresses);
+            await CheckAddressesIfExistsStrategy.execute(user.addresses, user.id);
             await ValidateCreditCardsStrategy.execute(user.creditCards);
+            await CheckCreditCardsIfExistsStrategy.execute(user.creditCards, user.id);
             return await UpdateUserStrategy.execute(user);
         } catch (error) {
             throw error;

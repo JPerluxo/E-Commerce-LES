@@ -21,10 +21,10 @@ class PhoneDAO {
         }
     }
 
-    static async delete(userId, transaction = null) {
+    static async delete(field, value, transaction = null) {
         try {
             return await Phone.destroy({
-                where: { tel_cli_id: userId },
+                where: { [field]: value },
                 transaction
             });
         } catch (error) {
@@ -32,10 +32,10 @@ class PhoneDAO {
         }
     }
 
-    static async findByUserId(userId, transaction = null) {
+    static async find(field, value, transaction = null) {
         try {
             return await Phone.findAll({
-                where: { tel_cli_id: userId },
+                where: { [field]: value },
                 transaction
             }).then(phones => phones.map(phone => {
                 const { userId, ...phoneWithoutUserId } = phone.toJSON();

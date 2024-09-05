@@ -21,10 +21,10 @@ class CreditCardDAO {
         }
     }
 
-    static async delete(userId, transaction = null) {
+    static async delete(field, value, transaction = null) {
         try {
             return await CreditCard.destroy({
-                where: { crt_cli_id: userId },
+                where: { [field]: value },
                 transaction
             });
         } catch (error) {
@@ -32,10 +32,10 @@ class CreditCardDAO {
         }
     }
 
-    static async findByUserId(userId, transaction = null) {
+    static async find(field, value, transaction = null) {
         try {
             return await CreditCard.findAll({
-                where: { crt_cli_id: userId },
+                where: { [field]: value },
                 transaction
             }).then(creditCards => creditCards.map(creditCard => {
                 const { userId, ...creditCardWithoutUserId } = creditCard.toJSON();

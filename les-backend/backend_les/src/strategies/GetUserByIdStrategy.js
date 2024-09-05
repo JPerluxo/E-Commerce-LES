@@ -10,11 +10,11 @@ class GetUserByIdStrategy {
         try {
             const user = await UserDAO.findById(userId, transaction);
 
-            const userPhones = await PhoneDAO.findByUserId(userId, transaction);
+            const userPhones = await PhoneDAO.find('tel_cli_id', userId, transaction);
 
-            const userAddresses = await AddressDAO.findByUserId(userId, transaction);
+            const userAddresses = await AddressDAO.find('end_cli_id', userId, transaction);
 
-            const userCreditCards = await CreditCardDAO.findByUserId(userId, transaction);
+            const userCreditCards = await CreditCardDAO.find('crt_cli_id', userId, transaction);
 
             await transaction.commit();
             return {...user.dataValues, phones: userPhones, addresses: userAddresses, creditCards: userCreditCards};

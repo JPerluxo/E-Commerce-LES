@@ -8,11 +8,11 @@ class DeleteUserStrategy {
     static async execute(userId) {
         const transaction = await sequelize.transaction();
         try {
-            await PhoneDAO.delete(userId, transaction);
+            await PhoneDAO.delete('tel_cli_id', userId, transaction);
 
-            await AddressDAO.delete(userId, transaction);
+            await AddressDAO.delete('end_cli_id', userId, transaction);
 
-            await CreditCardDAO.delete(userId, transaction);
+            await CreditCardDAO.delete('crt_cli_id', userId, transaction);
 
             await UserDAO.delete(userId, transaction);
 

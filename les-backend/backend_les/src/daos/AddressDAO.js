@@ -21,10 +21,10 @@ class AddressDAO {
         }
     }
 
-    static async delete(userId, transaction = null) {
+    static async delete(field, value, transaction = null) {
         try {
             return await Address.destroy({
-                where: { end_cli_id: userId },
+                where: { [field]: value },
                 transaction
             });
         } catch (error) {
@@ -32,10 +32,10 @@ class AddressDAO {
         }
     }
 
-    static async findByUserId(userId, transaction = null) {
+    static async find(field, value, transaction = null) {
         try {
             return await Address.findAll({
-                where: { end_cli_id: userId },
+                where: { [field]: value },
                 transaction
             }).then(addresses => addresses.map(address => {
                 const { userId, ...addressWithoutUserId } = address.toJSON();
