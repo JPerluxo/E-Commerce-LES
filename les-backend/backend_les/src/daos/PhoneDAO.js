@@ -31,6 +31,31 @@ class PhoneDAO {
             throw error;
         }
     }
+
+    static async findByUserId(userId, transaction = null) {
+        try {
+            return await Phone.findAll({
+                where: { tel_cli_id: userId },
+                transaction
+            }).then(phones => phones.map(phone => {
+                const { userId, ...phoneWithoutUserId } = phone.toJSON();
+
+                switch(phoneWithoutUserId.type) {
+                    case "Celular":
+                        phoneWithoutUserId.type = 1;
+                        break;
+
+                    case "Fixo":
+                        phoneWithoutUserId.type = 2;
+                        break;
+                }
+
+                return phoneWithoutUserId;
+            }));
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = PhoneDAO;

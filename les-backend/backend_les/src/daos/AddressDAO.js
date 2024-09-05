@@ -31,6 +31,20 @@ class AddressDAO {
             throw error;
         }
     }
+
+    static async findByUserId(userId, transaction = null) {
+        try {
+            return await Address.findAll({
+                where: { end_cli_id: userId },
+                transaction
+            }).then(addresses => addresses.map(address => {
+                const { userId, ...addressWithoutUserId } = address.toJSON();
+                return addressWithoutUserId;
+            }));
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = AddressDAO;

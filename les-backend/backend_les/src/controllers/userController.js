@@ -13,6 +13,17 @@ router.post('/save', async (req, res) => {
     }
 });
 
+router.get('/getById', async (req, res) => {
+    const userId = req.query.userId
+
+    try {
+        const result = await UserService.getUserById(userId);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao consultar usuário: ${error}`, status: 500 });
+    }
+});
+
 router.post('/update', async (req, res) => {
     const user = req.body;
 

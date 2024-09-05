@@ -31,6 +31,20 @@ class CreditCardDAO {
             throw error;
         }
     }
+
+    static async findByUserId(userId, transaction = null) {
+        try {
+            return await CreditCard.findAll({
+                where: { crt_cli_id: userId },
+                transaction
+            }).then(creditCards => creditCards.map(creditCard => {
+                const { userId, ...creditCardWithoutUserId } = creditCard.toJSON();
+                return creditCardWithoutUserId;
+            }));
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = CreditCardDAO;

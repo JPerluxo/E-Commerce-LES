@@ -31,6 +31,32 @@ class UserDAO {
             throw error;
         }
     }
+
+    static async findById(id, transaction = null) {
+        try {
+            return await User.findByPk(id, {
+                transaction
+            }).then(userData => {
+                switch(userData.gender) {
+                    case "Masculino":
+                        userData.gender = 1;
+                        break;
+
+                    case "Feminino":
+                        userData.gender = 2;
+                        break;
+
+                    case "Não informado":
+                        userData.gender = 3;
+                        break;
+                }
+
+                return userData;
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = UserDAO;
