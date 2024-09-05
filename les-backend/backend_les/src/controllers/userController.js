@@ -13,6 +13,15 @@ router.post('/save', async (req, res) => {
     }
 });
 
+router.get('/table', async (req, res) => {
+    try {
+        const result = await UserService.getUsersTable();
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao buscar usuários: ${error}`, status: 500 });
+    }
+});
+
 router.get('/getById', async (req, res) => {
     const userId = req.query.userId
 

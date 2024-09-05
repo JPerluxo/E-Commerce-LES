@@ -10,6 +10,7 @@ const CheckAddressesIfExistsStrategy = require('../strategies/CheckAddressesIfEx
 const CheckCreditCardsIfExistsStrategy = require('../strategies/CheckCreditCardsIfExistsStrategy');
 const DeleteUserStrategy = require('../strategies/DeleteUserStrategy');
 const GetUserByIdStrategy = require('../strategies/GetUserByIdStrategy');
+const GetUsersTableStrategy = require('../strategies/GetUsersTableStrategy');
 
 class UserService {
     static async saveUser(user) {
@@ -52,6 +53,14 @@ class UserService {
         try {
             await CheckUserIfExistsStrategy.execute(userId);
             return await GetUserByIdStrategy.execute(userId);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async getUsersTable() {
+        try {
+            return await GetUsersTableStrategy.execute();
         } catch (error) {
             throw error;
         }

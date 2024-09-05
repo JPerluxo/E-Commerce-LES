@@ -57,6 +57,17 @@ class UserDAO {
             throw error;
         }
     }
+
+    static async findAll(transaction = null) {
+        try {
+            return await User.findAll({
+                attributes: ['id', 'name', 'cpf', 'isActive'],
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = UserDAO;
