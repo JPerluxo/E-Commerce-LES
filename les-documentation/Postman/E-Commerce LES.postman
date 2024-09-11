@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Jefferson\",\r\n    \"cpf\": \"474889638-81\",\r\n    \"isActive\": true,\r\n    \"gender\": 1,\r\n    \"birthDate\": \"2001-02-07\",\r\n    \"password\": \"Pituc@07\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"911112222\",\r\n            \"type\": 1,\r\n            \"ddd\": \"11\"\r\n        },\r\n        {\r\n            \"number\": \"933334444\",\r\n            \"type\": 2,\r\n            \"ddd\": \"11\"\r\n        }\r\n    ],\r\n    \"addresses\": [\r\n        {\r\n            \"isDelivery\": true,\r\n            \"isBilling\": false,\r\n            \"streetType\": \"Rua\",\r\n            \"street\": \"Rua de Teste\",\r\n            \"number\": \"123\",\r\n            \"neighborhood\": \"Vila Teste\",\r\n            \"cep\": \"12345-678\",\r\n            \"city\": \"Mogi das Cruzes\",\r\n            \"state\": \"SP\",\r\n            \"country\": \"Brasil\"\r\n        },\r\n        {\r\n            \"isDelivery\": false,\r\n            \"isBilling\": true,\r\n            \"streetType\": \"Rua\",\r\n            \"street\": \"Rua Mockada\",\r\n            \"number\": \"4567\",\r\n            \"neighborhood\": \"Parque Mockado\",\r\n            \"cep\": \"90123-456\",\r\n            \"city\": \"Mogi das Cruzes\",\r\n            \"state\": \"SP\",\r\n            \"country\": \"Brasil\"\r\n        }\r\n    ],\r\n    \"creditCards\": [\r\n        {\r\n            \"name\": \"JEFFERSON P. CLEMENTE\",\r\n            \"number\": \"1234 5678 9012 1234\",\r\n            \"cvv\": \"123\",\r\n            \"dueDate\": \"2030-08\",\r\n            \"isActive\": true,\r\n            \"flag\": 1\r\n        },\r\n        {\r\n            \"name\": \"TESTE M. OCKADO\",\r\n            \"number\": \"5678 9012 3456 7890\",\r\n            \"cvv\": \"456\",\r\n            \"dueDate\": \"2099-02\",\r\n            \"isActive\": true,\r\n            \"flag\": 3\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"Jefferson Perluxo Clemente\",\r\n    \"cpf\": \"47488963881\",\r\n    \"isActive\": true,\r\n    \"gender\": 1,\r\n    \"birthDate\": \"2001-02-07\",\r\n    \"password\": \"Pituc@07\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"911112222\",\r\n            \"type\": 1,\r\n            \"ddd\": \"11\"\r\n        },\r\n        {\r\n            \"number\": \"933334444\",\r\n            \"type\": 2,\r\n            \"ddd\": \"11\"\r\n        }\r\n    ],\r\n    \"addresses\": [\r\n        {\r\n            \"isDelivery\": true,\r\n            \"isBilling\": false,\r\n            \"streetType\": \"Rua\",\r\n            \"street\": \"Rua de Teste\",\r\n            \"number\": \"123\",\r\n            \"neighborhood\": \"Vila Teste\",\r\n            \"cep\": \"12345-678\",\r\n            \"city\": \"Mogi das Cruzes\",\r\n            \"state\": \"SP\",\r\n            \"country\": \"Brasil\"\r\n        },\r\n        {\r\n            \"isDelivery\": false,\r\n            \"isBilling\": true,\r\n            \"streetType\": \"Rua\",\r\n            \"street\": \"Rua Mockada\",\r\n            \"number\": \"4567\",\r\n            \"neighborhood\": \"Parque Mockado\",\r\n            \"cep\": \"90123-456\",\r\n            \"city\": \"Mogi das Cruzes\",\r\n            \"state\": \"SP\",\r\n            \"country\": \"Brasil\"\r\n        }\r\n    ],\r\n    \"creditCards\": [\r\n        {\r\n            \"name\": \"JEFFERSON P. CLEMENTE\",\r\n            \"number\": \"1234 5678 9012 1234\",\r\n            \"cvv\": \"123\",\r\n            \"dueDate\": \"2030-08\",\r\n            \"isActive\": true,\r\n            \"flag\": 1\r\n        },\r\n        {\r\n            \"name\": \"TESTE M. OCKADO\",\r\n            \"number\": \"5678 9012 3456 7890\",\r\n            \"cvv\": \"456\",\r\n            \"dueDate\": \"2099-02\",\r\n            \"isActive\": true,\r\n            \"flag\": 3\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"35\",\r\n    \"userObject\": {\r\n        \"name\": \"Jefferson\",\r\n        \"cpf\": \"474889638-81\",\r\n        \"isActive\": true,\r\n        \"gender\": 1,\r\n        \"birthDate\": \"2001-02-07\",\r\n        \"password\": \"Pituc@07\",\r\n        \"phones\": [\r\n            {\r\n                \"id\": 58,\r\n                \"number\": \"911112222\",\r\n                \"type\": 1,\r\n                \"ddd\": \"11\"\r\n            },\r\n            {\r\n                \"id\": 59,\r\n                \"number\": \"933334444\",\r\n                \"type\": 2,\r\n                \"ddd\": \"11\"\r\n            }\r\n        ],\r\n        \"addresses\": [\r\n            {\r\n                \"id\": 54,\r\n                \"isDelivery\": true,\r\n                \"isBilling\": false,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua de Teste\",\r\n                \"number\": \"123\",\r\n                \"neighborhood\": \"Vila Teste\",\r\n                \"cep\": \"12345-678\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            },\r\n            {\r\n                \"id\": 55,\r\n                \"isDelivery\": false,\r\n                \"isBilling\": true,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua Mockada\",\r\n                \"number\": \"4567\",\r\n                \"neighborhood\": \"Parque Mockado\",\r\n                \"cep\": \"90123-456\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            }\r\n        ],\r\n        \"creditCards\": [\r\n            {\r\n                \"id\": 29,\r\n                \"name\": \"JEFFERSON P. CLEMENTE\",\r\n                \"number\": \"1234 5678 9012 1234\",\r\n                \"cvv\": \"123\",\r\n                \"dueDate\": \"2030-08-01\",\r\n                \"isActive\": true,\r\n                \"flag\": 1\r\n            },\r\n            {\r\n                \"id\": 30,\r\n                \"name\": \"TESTE M. OCKADO\",\r\n                \"number\": \"5678 9012 3456 7890\",\r\n                \"cvv\": \"456\",\r\n                \"dueDate\": \"2099-02-01\",\r\n                \"isActive\": true,\r\n                \"flag\": 3\r\n            },\r\n            {\r\n                \"id\": 1,\r\n                \"name\": \"TESTE E. DITAR\",\r\n                \"number\": \"2222 3333 8888 1111\",\r\n                \"cvv\": \"234\",\r\n                \"dueDate\": \"8000-01-01\",\r\n                \"isActive\": false,\r\n                \"flag\": 2\r\n            }\r\n        ]\r\n    }\r\n}",
+							"raw": "{\r\n    \"userId\": \"39\",\r\n    \"userObject\": {\r\n        \"name\": \"Jefferson Perluxo Clemente\",\r\n        \"cpf\": \"47488963881\",\r\n        \"isActive\": true,\r\n        \"gender\": \"1\",\r\n        \"birthDate\": \"2001-02-07\",\r\n        \"password\": \"Giant@2022\",\r\n        \"phones\": [\r\n            {\r\n                \"id\": 69,\r\n                \"number\": \"912752536\",\r\n                \"type\": 1,\r\n                \"ddd\": \"11\"\r\n            }\r\n        ],\r\n        \"addresses\": [\r\n            {\r\n                \"id\": 69,\r\n                \"isDelivery\": true,\r\n                \"isBilling\": true,\r\n                \"streetType\": \"Rua\",\r\n                \"street\": \"Rua Bento Ramos de Queiroz\",\r\n                \"number\": \"67\",\r\n                \"neighborhood\": \"Vila Industrial\",\r\n                \"cep\": \"08770-130\",\r\n                \"city\": \"Mogi das Cruzes\",\r\n                \"state\": \"SP\",\r\n                \"country\": \"Brasil\"\r\n            }\r\n        ],\r\n        \"creditCards\": [\r\n            {\r\n                \"id\": 45,\r\n                \"name\": \"JEFFERSON P. CLEMENTE\",\r\n                \"number\": \"1111 3333 4444 2222\",\r\n                \"cvv\": \"671\",\r\n                \"dueDate\": \"2077-11-01\",\r\n                \"isActive\": true,\r\n                \"flag\": 4\r\n            }\r\n        ]\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -74,7 +74,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"35\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"43\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,7 +102,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/user/getById?userId=35",
+							"raw": "http://localhost:3001/user/getById?userId=39",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -115,7 +115,7 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "35"
+									"value": "39"
 								}
 							]
 						}
@@ -126,7 +126,19 @@
 					"name": "Buscar todos os Usuários",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/user/table",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"table"
+							]
+						}
 					},
 					"response": []
 				}
