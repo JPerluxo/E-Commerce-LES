@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProductCard from '../../molecules/ProductCard';
-import { bookApi } from '../../../../../apis/bookApi';
+import { beverageApi } from '../../../../../apis/beverageApi';
 
 const ProductsBox = ({ onAlert }) => {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ const ProductsBox = ({ onAlert }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await bookApi.getBooks();
+        const response = await beverageApi.getBeverages();
         if (response.status === 200) {
           setProducts(response.data);
         } else {

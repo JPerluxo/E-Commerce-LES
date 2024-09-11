@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
-import { bookApi } from '../../../../../apis/bookApi';
+import { beverageApi } from '../../../../../apis/beverageApi';
 
 const ProductCard = ({ product, onAlert }) => {
   const inputRef = useRef(null);
@@ -16,14 +16,14 @@ const ProductCard = ({ product, onAlert }) => {
       
       if(quantity >= 1) {
         const cartObject = {
-          bookId: product.id,
-          bookQuantity: quantity,
+          beverageId: product.id,
+          beverageQuantity: quantity,
           purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
-          bookValue: product.price,
+          beverageValue: product.costPrice,
           clientId: "ID", // Ver como pegar ID do cliente
         }
 
-        const response = await bookApi.bookToCart(cartObject);
+        const response = await beverageApi.beverageToCart(cartObject);
         onAlert({ status: response.status, message: response.message });
       }
       else onAlert({status: 500, message: "Insira um valor válido!"});
@@ -36,13 +36,17 @@ const ProductCard = ({ product, onAlert }) => {
     <Card className={styles.Card}>
       <Card.Img src={product.imageUrl}/>
       <Card.Body className={styles.CardBody}>
-        <Card.Title>{product.title}</Card.Title>
+        <Card.Title>{product.label}</Card.Title>
         <Card.Text>
-          {product.text}
+          {Object.entries(product)
+            .filter(([key]) => key !== 'imageUrl' && key !== 'groupId' && key !== 'id' && key !== 'costPrice' && key !== 'label')
+            .map(([key, value]) => `${value}`)
+            .join(', ')
+          }
         </Card.Text>
         <InputGroup>
           <Form.Control placeholder="Quantidade" type="Number" min={1} ref={inputRef} aria-label="Quantidade" aria-describedby={`product_${product.id}`}/>
-          <Button variant="primary" id={`product_${product.id}`} onClick={SendToCart}>R${product.price}</Button>
+          <Button variant="primary" id={`product_${product.id}`} onClick={SendToCart}>R${product.costPrice}</Button>
         </InputGroup>
       </Card.Body>
     </Card>
