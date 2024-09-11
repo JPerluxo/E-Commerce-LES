@@ -1,3 +1,5 @@
+const UserDAO = require('../daos/UserDAO');
+
 class ValidateUserStrategy {
     static async execute(data) {
         try {
@@ -20,6 +22,11 @@ class ValidateUserStrategy {
             }    
             else if (!/^\d{11}$|^\d{9}-\d{2}$/.test(data.cpf)) {
                 throw new Error('O campo "CPF" deve ser uma string de 11 dígitos ou no formato "000000000-00".');
+            }
+
+            const existingCpfs = await UserDAO.findAll().then(users => users.map(user => user.cpf));
+            if (!data.id && existingCpfs.includes(data.cpf)) {
+                throw new Error('Já existe um usuário com o CPF cadastrado.');
             }
 
             if (typeof data.isActive !== 'boolean') {
