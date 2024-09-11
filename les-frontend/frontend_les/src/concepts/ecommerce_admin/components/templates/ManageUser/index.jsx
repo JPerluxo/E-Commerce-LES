@@ -22,7 +22,7 @@ const ManageUser = () => {
           setAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
         }
       } catch (error) {
-        setAlert({status: 500, message: `Erro: ${error.message}`});
+        setAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
       }
     })();
   }, [setAlert]);

@@ -47,7 +47,7 @@ const UserFormBox = ({ data, setAlert }) => {
     }
     
     catch (error) {
-      setAlert({ status: 500, message: `Erro ao ${!data ? "salvar" : "editar"} usuário: ${error.message}` });
+      setAlert({ status: 500, message: error?.response?.data?.message ?? `Erro ao ${!data ? "salvar" : "editar"} usuário: ${error.message}` });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }

@@ -14,7 +14,7 @@ const TableRow = ({ rowContent, onAlert, deleteFunction }) => {
     }
     
     catch (error) {
-      onAlert({ status: 500, message: `Erro ao deletar: ${error.message}` });
+      onAlert({ status: 500, message: error?.response?.data?.message ?? `Erro ao deletar: ${error.message}` });
     }
   };
 

@@ -19,7 +19,7 @@ const ProductsBox = ({ onAlert }) => {
           onAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
         }
       } catch (error) {
-        onAlert({status: 500, message: `Erro: ${error.message}`});
+        onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
       }
     })();
   }, [onAlert]);

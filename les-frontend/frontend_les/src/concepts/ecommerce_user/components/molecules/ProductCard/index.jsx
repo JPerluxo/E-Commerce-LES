@@ -28,7 +28,7 @@ const ProductCard = ({ product, onAlert }) => {
       }
       else onAlert({status: 500, message: "Insira um valor válido!"});
     } catch (error) {
-      onAlert({status: 500, message: `Erro: ${error.message}`});
+      onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
     }
   };
 
