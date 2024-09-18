@@ -13,24 +13,24 @@ const Carousel = () => {
   return (
     <BootstrapCarousel className={styles.BootstrapCarousel}>
       <BootstrapCarousel.Item interval={carouselInterval}>
-        <img src={HomeSlide1} alt="Slide 1"/>
-        <BootstrapCarousel.Caption>
+        <span className={styles.CarouselFrame}><img src={HomeSlide1} alt="Slide 1"/></span>
+        <BootstrapCarousel.Caption className={styles.CarouselCaption}>
           <h3>Você sabia?</h3>
-          <p>A leitura de todos os bons livros é uma conversação com as mais honestas pessoas dos séculos passados.</p>
+          <p>O vinho é uma das bebidas mais antigas do mundo. Ele foi produzido pela primeira vez há mais de 8.000 anos na região que hoje é a Geórgia, no leste da Europa.</p>
         </BootstrapCarousel.Caption>
       </BootstrapCarousel.Item>
       <BootstrapCarousel.Item interval={carouselInterval}>
-        <img src={HomeSlide2} alt="Slide 2"/>
-        <BootstrapCarousel.Caption>
-          <h3>Sabedoria</h3>
-          <p>A leitura desperta sentimentos profundos e nos revela novas formas de viver.</p>
+        <span className={styles.CarouselFrame}><img src={HomeSlide2} alt="Slide 2"/></span>
+        <BootstrapCarousel.Caption className={styles.CarouselCaption}>
+          <h3>Nunca beba em excesso!</h3>
+          <p>A moderação é a chave para aproveitar uma boa bebida sem comprometer sua saúde ou segurança.</p>
         </BootstrapCarousel.Caption>
       </BootstrapCarousel.Item>
       <BootstrapCarousel.Item interval={carouselInterval}>
-        <img src={HomeSlide3} alt="Slide 3"/>
-        <BootstrapCarousel.Caption>
-          <h3>Leia</h3>
-          <p>Ler é beber e comer. O espírito que não lê emagrece como o corpo que não come.</p>
+        <span className={styles.CarouselFrame}><img src={HomeSlide3} alt="Slide 3"/></span>
+        <BootstrapCarousel.Caption className={styles.CarouselCaption}>
+          <h3>Atenção</h3>
+          <p>Sempre use um copo adequado para a bebida que você está servindo. O tipo de copo pode realçar ou suavizar os sabores da bebida.</p>
         </BootstrapCarousel.Caption>
       </BootstrapCarousel.Item>
     </BootstrapCarousel>
