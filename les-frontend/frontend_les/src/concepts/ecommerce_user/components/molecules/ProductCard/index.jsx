@@ -3,7 +3,6 @@ import styles from './index.module.css';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { beverageApi } from '../../../../../apis/beverageApi';
 
@@ -43,14 +42,12 @@ const ProductCard = ({ product, onAlert }) => {
           <div className={styles.CardYear}><p className="fw-bold">Ano</p><p>{product.year}</p></div>
           <div className={styles.CardManufacturer}><p className="fw-bold">Fabricante</p><p>{product.manufacturer}</p></div>
           <div className={styles.CardCountry}><p className="fw-bold">País</p><p>{product.country}</p></div>
-          <div className={styles.CardBarCode}><p className="fw-bold">Cód de Barras</p><p>{product.barCode}</p></div>
           <div className={styles.CardAlcoholContent}><p className="fw-bold">Teor Alcoólico</p><p>{product.alcoholContent}%</p></div>
           <div className={styles.CardVolume}><p className="fw-bold">Volume</p><p>{(product.volume * 1000).toFixed(0)}mL</p></div>
+          <div className={styles.CardPrice}><p className="fw-bold">Preço unit.</p><p>R${product.costPrice.toFixed(2)}</p></div>
         </Card.Text>
-        <InputGroup>
-          <Form.Control placeholder="Quantidade" type="Number" min={1} ref={inputRef} aria-label="Quantidade" aria-describedby={`product_${product.id}`}/>
-          <Button variant="primary" id={`product_${product.id}`} onClick={SendToCart}>R${product.costPrice.toFixed(2)}</Button>
-        </InputGroup>
+        <Form.Control placeholder="Quantidade" type="Number" min={1} ref={inputRef} aria-label="Quantidade" aria-describedby={`product_${product.id}`}/>
+        <Button variant="primary" className={styles.BuyButton} id={`product_${product.id}`} onClick={SendToCart}>Adicionar ao carrinho</Button>
       </Card.Body>
     </Card>
   )

@@ -13,22 +13,22 @@ export const beverageApi = {
     var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
       status: 200,
       data: [
-        { id: 1, label: "Château Margaux", costPrice: 1500.00, year: 2015, manufacturer: "Château Margaux", country: "France", barCode: 123456789012, alcoholContent: 13.5, volume: 0.75, imageUrl: imageUrl },
-        { id: 2, label: "Penfolds Grange", costPrice: 850.00, year: 2016, manufacturer: "Penfolds", country: "Australia", barCode: 123456789014, alcoholContent: 14.5, volume: 0.75, imageUrl: imageUrl },
-        { id: 3, label: "Casa Valduga Gran Reserva", costPrice: 200.00, year: 2018, manufacturer: "Casa Valduga", country: "Brazil", barCode: 123456789013, alcoholContent: 13.0, volume: 0.75, imageUrl: imageUrl },
-        { id: 4, label: "Miolo Lote 43", costPrice: 120.00, year: 2019, manufacturer: "Miolo", country: "Brazil", barCode: 123456789015, alcoholContent: 12.5, volume: 0.75, imageUrl: imageUrl },
-        { id: 5, label: "Heineken", costPrice: 3.00, year: 2023, manufacturer: "Heineken N.V.", country: "Netherlands", barCode: 123456789018, alcoholContent: 5.0, volume: 0.33, imageUrl: imageUrl },
-        { id: 6, label: "Skol", costPrice: 2.50, year: 2023, manufacturer: "Ambev", country: "Brazil", barCode: 123456789019, alcoholContent: 4.7, volume: 0.33, imageUrl: imageUrl },
-        { id: 7, label: "Ypióca", costPrice: 20.00, year: 2023, manufacturer: "Ypióca", country: "Brazil", barCode: 123456789020, alcoholContent: 39.0, volume: 0.7, imageUrl: imageUrl },
-        { id: 8, label: "Johnnie Walker Black Label", costPrice: 150.00, year: 2023, manufacturer: "Diageo", country: "Scotland", barCode: 123456789021, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl },
-        { id: 9, label: "Smirnoff", costPrice: 25.00, year: 2023, manufacturer: "Diageo", country: "Russia", barCode: 123456789022, alcoholContent: 37.5, volume: 0.7, imageUrl: imageUrl },
-        { id: 10, label: "Chandon Réserve Brut", costPrice: 85.00, year: 2022, manufacturer: "Chandon", country: "Brazil", barCode: 123456789023, alcoholContent: 12.0, volume: 0.75, imageUrl: imageUrl },
-        { id: 11, label: "Jack Daniels Tennessee Whiskey", costPrice: 130.00, year: 2023, manufacturer: "Brown-Forman", country: "USA", barCode: 123456789024, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl },
-        { id: 12, label: "Absolut Vodka", costPrice: 90.00, year: 2023, manufacturer: "Pernod Ricard", country: "Sweden", barCode: 123456789025, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl },
-        { id: 13, label: "Patrón Silver Tequila", costPrice: 250.00, year: 2023, manufacturer: "Patrón Spirits", country: "Mexico", barCode: 123456789026, alcoholContent: 40.0, volume: 0.75, imageUrl: imageUrl },
-        { id: 14, label: "Bacardi Carta Blanca", costPrice: 50.00, year: 2023, manufacturer: "Bacardi", country: "Puerto Rico", barCode: 123456789027, alcoholContent: 37.5, volume: 0.7, imageUrl: imageUrl },
-        { id: 15, label: "Corona Extra", costPrice: 4.50, year: 2023, manufacturer: "Grupo Modelo", country: "Mexico", barCode: 123456789028, alcoholContent: 4.5, volume: 0.33, imageUrl: imageUrl },
-        { id: 16, label: "Guinness Draught", costPrice: 6.00, year: 2023, manufacturer: "Diageo", country: "Ireland", barCode: 123456789029, alcoholContent: 4.2, volume: 0.44, imageUrl: imageUrl }
+        { id: 1, label: "Château Margaux", costPrice: 1500.00, year: 2015, manufacturer: "Château Margaux", country: "France", barCode: 123456789012, alcoholContent: 13.5, volume: 0.75, imageUrl: imageUrl, categories: ["Vinhos", "Premium"] },
+        { id: 2, label: "Penfolds Grange", costPrice: 850.00, year: 2016, manufacturer: "Penfolds", country: "Australia", barCode: 123456789014, alcoholContent: 14.5, volume: 0.75, imageUrl: imageUrl, categories: ["Vinhos", "Premium"] },
+        { id: 3, label: "Casa Valduga Gran Reserva", costPrice: 200.00, year: 2018, manufacturer: "Casa Valduga", country: "Brazil", barCode: 123456789013, alcoholContent: 13.0, volume: 0.75, imageUrl: imageUrl, categories: ["Vinhos", "Premium"] },
+        { id: 4, label: "Miolo Lote 43", costPrice: 120.00, year: 2019, manufacturer: "Miolo", country: "Brazil", barCode: 123456789015, alcoholContent: 12.5, volume: 0.75, imageUrl: imageUrl, categories: ["Vinhos"] },
+        { id: 5, label: "Heineken", costPrice: 3.00, year: 2023, manufacturer: "Heineken N.V.", country: "Netherlands", barCode: 123456789018, alcoholContent: 5.0, volume: 0.33, imageUrl: imageUrl, categories: ["Cervejas"] },
+        { id: 6, label: "Skol", costPrice: 2.50, year: 2023, manufacturer: "Ambev", country: "Brazil", barCode: 123456789019, alcoholContent: 4.7, volume: 0.33, imageUrl: imageUrl, categories: ["Cervejas"] },
+        { id: 7, label: "Ypióca", costPrice: 20.00, year: 2023, manufacturer: "Ypióca", country: "Brazil", barCode: 123456789020, alcoholContent: 39.0, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados", "Ouro", "Prata"] },
+        { id: 8, label: "Johnnie Walker Black Label", costPrice: 150.00, year: 2023, manufacturer: "Diageo", country: "Scotland", barCode: 123456789021, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados"] },
+        { id: 9, label: "Smirnoff", costPrice: 25.00, year: 2023, manufacturer: "Diageo", country: "Russia", barCode: 123456789022, alcoholContent: 37.5, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados"] },
+        { id: 10, label: "Chandon Réserve Brut", costPrice: 85.00, year: 2022, manufacturer: "Chandon", country: "Brazil", barCode: 123456789023, alcoholContent: 12.0, volume: 0.75, imageUrl: imageUrl, categories: ["Vinhos"] },
+        { id: 11, label: "Jack Daniels Tennessee Whiskey", costPrice: 130.00, year: 2023, manufacturer: "Brown-Forman", country: "USA", barCode: 123456789024, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados"] },
+        { id: 12, label: "Absolut Vodka", costPrice: 90.00, year: 2023, manufacturer: "Pernod Ricard", country: "Sweden", barCode: 123456789025, alcoholContent: 40.0, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados"] },
+        { id: 13, label: "Patrón Silver Tequila", costPrice: 250.00, year: 2023, manufacturer: "Patrón Spirits", country: "Mexico", barCode: 123456789026, alcoholContent: 40.0, volume: 0.75, imageUrl: imageUrl, categories: ["Destilados", "Prata"] },
+        { id: 14, label: "Bacardi Carta Blanca", costPrice: 50.00, year: 2023, manufacturer: "Bacardi", country: "Puerto Rico", barCode: 123456789027, alcoholContent: 37.5, volume: 0.7, imageUrl: imageUrl, categories: ["Destilados"] },
+        { id: 15, label: "Corona Extra", costPrice: 4.50, year: 2023, manufacturer: "Grupo Modelo", country: "Mexico", barCode: 123456789028, alcoholContent: 4.5, volume: 0.33, imageUrl: imageUrl, categories: ["Cervejas"] },
+        { id: 16, label: "Guinness Draught", costPrice: 6.00, year: 2023, manufacturer: "Diageo", country: "Ireland", barCode: 123456789029, alcoholContent: 4.2, volume: 0.44, imageUrl: imageUrl, categories: ["Cervejas"] }
       ]
       
       // resposta simulada de erro:

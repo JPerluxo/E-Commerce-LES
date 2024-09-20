@@ -1,0 +1,56 @@
+.ProductsFilter {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    background-color: #ffffff;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    margin: 5vh 2.5vh 5vh 5vh;
+    padding: 1rem 1rem;
+    justify-content: center;
+}
+
+.ProductsFilter h3 {
+    text-align: center;
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+.Categories {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: .5rem 1rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.Categories:hover {
+    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+    outline: 0;
+    border-color: #86b7fe;
+}
+
+.CategoryFilter {
+    text-decoration: none;
+    color: #212529;
+    text-align: start;
+    padding: .5rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    transition: color .15s ease-in-out,border-bottom-color .15s ease-in-out;
+    border-radius: 0;
+}
+
+.CategoryFilter:hover {
+    border-bottom-color: #0a58ca;
+}
+
+@media screen and ((max-width: 768px)) {
+    .ProductsFilter {
+        margin: 5vh 0 2.5vh 0;
+        width: 50%;
+    }
+
+    .CategoryFilter {
+        text-align: center;
+    }
+  }
