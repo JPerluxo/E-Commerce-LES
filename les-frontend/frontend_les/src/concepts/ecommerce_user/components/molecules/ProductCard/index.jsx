@@ -19,7 +19,7 @@ const ProductCard = ({ product, onAlert }) => {
           beverageQuantity: quantity,
           purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
           beverageValue: product.costPrice,
-          clientId: "ID", // Ver como pegar ID do cliente
+          clientId: 1,
         }
 
         const response = await beverageApi.beverageToCart(cartObject);

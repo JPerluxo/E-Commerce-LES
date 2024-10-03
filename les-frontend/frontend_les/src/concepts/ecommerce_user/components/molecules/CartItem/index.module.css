@@ -1,0 +1,79 @@
+.CartItem {
+    display: flex;
+    align-items: center;
+    gap: 5vh;
+    padding: .5rem 2rem !important;
+}
+
+.CartItem img {
+    width: 15rem;
+    border-radius: calc(0.375rem - 1px);
+}
+
+.ItemDiv {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 2vh;
+    width: 100%;
+    font-size: small;
+}
+
+.ItemYear { grid-area: 1 / 1 / 2 / 3; }
+.ItemManuLabel { grid-area: 1 / 3 / 2 / 5; }
+.ItemCountry { grid-area: 1 / 5 / 2 / 7; }
+.ItemAlcoholContent { grid-area: 2 / 1 / 3 / 3; }
+.ItemVolume { grid-area: 2 / 3 / 3 / 5; }
+.ItemQuantity { grid-area: 2 / 5 / 3 / 7; justify-content: center; }
+
+.ItemYear, .ItemManuLabel, .ItemCountry, .ItemAlcoholContent, .ItemVolume {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #dee2e6;
+    padding: .5vh 0.75rem;
+    gap: .5rem;
+    border-radius: 0.375rem;
+    align-items: center;
+}
+
+.ItemPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Modal {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ItemQuantityNum {
+    width: 3rem;
+    justify-content: center;
+}
+
+@media screen and ((max-width: 768px)) {
+    .CartItem {
+        flex-direction: column;
+        padding: 2rem .5rem !important;
+    }
+
+    .ItemDiv {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-row-gap: .75vh;
+    }
+    
+    .ItemYear { grid-area: 1 / 1 / 2 / 3; }
+    .ItemManuLabel { grid-area: 2 / 1 / 3 / 3; }
+    .ItemCountry { grid-area: 3 / 1 / 4 / 3; }
+    .ItemAlcoholContent { grid-area: 4 / 1 / 5 / 3; }
+    .ItemVolume { grid-area: 5 / 1 / 6 / 3; }
+    .ItemQuantity { grid-area: 6 / 1 / 7 / 3; }
+
+    .ItemYear, .ItemManuLabel, .ItemCountry, .ItemAlcoholContent, .ItemVolume {
+        gap: 1rem;
+    }
+}

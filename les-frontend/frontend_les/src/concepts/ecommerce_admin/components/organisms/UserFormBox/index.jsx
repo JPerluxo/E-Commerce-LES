@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Input from '../../molecules/Input';
-import Select from '../../molecules/Select';
+import Select from '../../../../shared/components/molecules/Select';
 import PhoneInput from '../../molecules/PhoneInput';
 import AddressInput from '../../molecules/AddressInput';
 import CreditCardInput from '../../molecules/CreditCardInput';
