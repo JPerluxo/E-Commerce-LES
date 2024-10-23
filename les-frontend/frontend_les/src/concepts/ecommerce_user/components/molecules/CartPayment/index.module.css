@@ -1,0 +1,44 @@
+.CartPayment {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #ffffffab;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+    border-radius: 1rem;
+    margin: .75rem 3rem 3rem 3rem;
+}
+
+.CartPayment h1 {
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.CartPaymentMethodSelect {
+    background-color: #ffffff;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.couponsMethod div span:first-child {
+    width: 90vh;
+}
+
+@media screen and ((max-width: 768px)) {
+    .CartPaymentMethodSelect div {
+        flex-wrap: nowrap;
+    }
+
+    .CartPaymentMethodSelect div span {
+        white-space: break-spaces;
+    }
+
+    .couponsMethod div span:first-child {
+        width: auto;
+    }
+}

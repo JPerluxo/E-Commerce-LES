@@ -1,6 +1,7 @@
 import './Reset.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import { UserProvider } from './concepts/ecommerce_user/hooks/useUserContext';
 import Home from './concepts/ecommerce_user/components/templates/Home'; //HOMEPAGE DO USUÁRIO
 import Cart from './concepts/ecommerce_user/components/templates/Cart'; //CARRINHO DE COMPRAS
 import AdminHome from './concepts/ecommerce_admin/components/templates/Home'; //HOMEPAGE DO ADMIN
@@ -11,15 +12,29 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/*ROTAS USUÁRIO*/}
-        <Route path="/user/home" element={<Home/>}/>
-        <Route path="/user/cart" element={<Cart/>}/>
-
-        {/*ROTAS ADMIN*/}
-        <Route path="/admin/home" element={<AdminHome/>}/>
-        <Route path="/admin/manageUser" element={<ManageUser/>}/>
-        <Route path="/admin/manageUser/new" element={<UserForm newForm/>}/>
-        <Route path="/admin/manageUser/edit" element={<UserForm/>}/>
+        <Route path="/" element={<Navigate to="/user/home" replace/>}/>
+        <Route
+          path="/user/*" //ROTAS USUÁRIO
+          element={
+            <UserProvider>
+              <Routes>
+                <Route path="home" element={<Home/>}/>
+                <Route path="cart" element={<Cart/>}/>
+              </Routes>
+            </UserProvider>
+          }
+        />
+        <Route
+          path="/admin/*" //ROTAS ADMIN
+          element={
+            <Routes>
+              <Route path="home" element={<AdminHome/>}/>
+              <Route path="manageUser" element={<ManageUser/>}/>
+              <Route path="manageUser/new" element={<UserForm newForm/>}/>
+              <Route path="manageUser/edit" element={<UserForm/>}/>
+            </Routes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import Table from 'react-bootstrap/Table';
 import { beverageApi } from '../../../../../apis/beverageApi';
 import CartItem from '../../molecules/CartItem';
+import CartPayment from '../../molecules/CartPayment';
 
 const CartBox = ({ onAlert }) => {
   const [products, setProducts] = useState([]);
@@ -27,7 +28,7 @@ const CartBox = ({ onAlert }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await beverageApi.getCart();
+        const response = await beverageApi.getCartBeverages();
         if (response.status === 200) {
           setProducts(response.data);
         } else {
@@ -47,8 +48,9 @@ const CartBox = ({ onAlert }) => {
           {products.map(product => <tr key={`CartTr_${product.beverageId}`}><CartItem key={`CartItem_${product.beverageId}`} product={product} onRemove={handleRemove} onUpdateQuantity={updateQuantity}/></tr>)}
         </tbody>
       </Table>
-      <div className={`fw-bold ${styles.CartTotal}`}><p>Total da compra:</p><p>{`R$${calculateTotal()}`}</p></div>
+      <p className={`fw-bold ${styles.CartTotal}`}>Total da compra: {`R$${calculateTotal()}`}</p>
     </div>
+    <CartPayment onAlert={onAlert} products={products}/>
   </div>)
 }
 

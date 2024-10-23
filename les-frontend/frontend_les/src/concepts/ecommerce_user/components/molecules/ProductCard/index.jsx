@@ -5,9 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { beverageApi } from '../../../../../apis/beverageApi';
+import { useUserContext } from '../../../hooks/useUserContext';
 
 const ProductCard = ({ product, onAlert }) => {
   const inputRef = useRef(null);
+  const { userId } = useUserContext();
   
   async function SendToCart() {
     try {
@@ -19,7 +21,7 @@ const ProductCard = ({ product, onAlert }) => {
           beverageQuantity: quantity,
           purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
           beverageValue: product.costPrice,
-          clientId: 1,
+          clientId: userId,
         }
 
         const response = await beverageApi.beverageToCart(cartObject);

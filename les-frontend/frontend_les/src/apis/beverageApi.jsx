@@ -54,11 +54,12 @@ export const beverageApi = {
       // status: 500,
       // message: `Erro ao adicionar ${cartObject.beverageId} ao carrinho!`
     }
+    console.log(cartObject);
 
     return response;
   },
 
-  getCart: async function ( cancel = false) {
+  getCartBeverages: async function ( cancel = false) {
     // const response = await api.request({
     //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/getCart`,
     //   method: "GET",
@@ -82,6 +83,26 @@ export const beverageApi = {
       // status: 500,
       // message: "Erro ao buscar produtos do carrinho!"
     }
+
+    return response;
+  },
+
+  checkoutBeverages: async function ( checkoutObject, cancel = false) {
+    // const response = await api.request({
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/checkout?checkoutObject=${checkoutObject}`,
+    //   method: "POST",
+    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    // })
+
+    var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+      status: 200,
+      message: "Compra processada com sucesso!"
+
+      // resposta simulada de erro:
+      // status: 500,
+      // message: "Erro ao processar a compra!"
+    }
+    console.log(checkoutObject);
 
     return response;
   }

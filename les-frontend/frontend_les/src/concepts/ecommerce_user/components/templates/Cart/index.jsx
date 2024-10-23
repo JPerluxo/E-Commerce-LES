@@ -12,11 +12,13 @@ const Cart = () => {
 
   return (<>
     <Header isUser/>
-    {alert && <div className={styles.alertDiv}>
-      <Alert status={alert.status} message={alert.message} onClose={() => setAlert(null)}/>
-    </div>}
-    <CartBox onAlert={handleAlert}/>
-    <Footer/>
+    <div className={styles.CartDiv}>
+      {alert && <div className={styles.alertDiv}>
+        <Alert status={alert.status} message={alert.message} onClose={() => setAlert(null)}/>
+      </div>}
+      <CartBox onAlert={handleAlert}/>
+      <Footer/>
+    </div>
   </>)
 }
 
