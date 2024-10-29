@@ -26,18 +26,22 @@ Este projeto consiste em um E-commerce de bebidas alcoólicas desenvolvido para 
 ```
 │
 └───src
+│   │
+│   └───controllers
+│   │
+│   └───services
+│   │
+│   └───daos
+│   │
+│   └───strategies
+│   │
+│   └───models
+│   │
+│   └───config
+│
+└───public
     │
-    └───controllers
-    │
-    └───services
-    │
-    └───daos
-    │
-    └───strategies
-    │
-    └───models
-    │
-    └───config
+    └───images
 ```
 
 <details>
