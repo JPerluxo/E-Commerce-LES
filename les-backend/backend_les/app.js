@@ -11,4 +11,7 @@ app.get('/', (req, res) => res.send('Server OK!'));
 const userController = require('./src/controllers/userController');
 app.use('/user', userController);
 
+const beverageController = require('./src/controllers/beverageController');
+app.use('/beverage', beverageController);
+
 module.exports = app;

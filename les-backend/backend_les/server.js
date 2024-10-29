@@ -1,6 +1,7 @@
+require('dotenv').config({ path: '.env.local' });
 const app = require('./app');
 const db = require('./src/config/dbConfig');
-const port = 3001;
+const port = process.env.APP_APPLICATION_PORT;
 
 db.sync().then(() => {
     app.listen(port, () => {
