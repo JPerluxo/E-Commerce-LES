@@ -145,6 +145,31 @@
 			]
 		},
 		{
+			"name": "Tela de Produtos",
+			"item": [
+				{
+					"name": "Buscar todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/beverage/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"beverage",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Status",
 			"request": {
 				"method": "GET",
