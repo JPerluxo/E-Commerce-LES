@@ -1,10 +1,12 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.get('/', (req, res) => res.send('Server OK!'));
 
 // Controllers
