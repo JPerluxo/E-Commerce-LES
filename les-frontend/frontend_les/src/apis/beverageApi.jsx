@@ -13,23 +13,15 @@ export const beverageApi = {
   },
 
   beverageToCart: async function ( cartObject, cancel = false) {
-    // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/toCart?cartObject=${cartObject}`,
-    //   method: "POST",
-    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
-    // })
+    const response = await api.request({
+      url: `${process.env.REACT_APP_BACKEND_URL}/beverage/toCart`,
+      method: "POST",
+      data: JSON.stringify(cartObject),
+      headers: { 'Content-Type': 'application/json' },
+      signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    })
 
-    var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
-      status: 200,
-      message: `Produto ${cartObject.beverageId} adicionado ao carrinho!`
-
-      // resposta simulada de erro:
-      // status: 500,
-      // message: `Erro ao adicionar ${cartObject.beverageId} ao carrinho!`
-    }
-    console.log(cartObject);
-
-    return response;
+    return response.data;
   },
 
   getCartBeverages: async function ( cancel = false) {

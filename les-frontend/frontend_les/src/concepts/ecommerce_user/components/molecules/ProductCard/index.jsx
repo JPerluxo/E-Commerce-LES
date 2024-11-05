@@ -20,8 +20,8 @@ const ProductCard = ({ product, onAlert }) => {
           beverageId: product.id,
           beverageQuantity: quantity,
           purchaseStatus: process.env.REACT_APP_IN_CART_STATUS,
-          beverageValue: product.costPrice,
-          clientId: userId,
+          purchaseValue: product.costPrice,
+          userId: userId,
         }
 
         const response = await beverageApi.beverageToCart(cartObject);
