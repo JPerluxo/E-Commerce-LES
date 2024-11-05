@@ -11,4 +11,15 @@ router.get('/all', async (req, res) => {
     }
 });
 
+router.post('/toCart', async (req, res) => {
+    const cartObject = req.body;
+
+    try {
+        const result = await BeverageService.beverageToCart(cartObject);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao adicionar ${error.beverageLabel} ao carrinho! ${error.message}`, status: 500 });
+    }
+});
+
 module.exports = router;
