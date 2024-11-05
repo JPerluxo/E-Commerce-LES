@@ -166,6 +166,35 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Adicionar Produto ao carrinho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"beverageId\": 6,\r\n    \"beverageQuantity\": 2,\r\n    \"purchaseStatus\": 1,\r\n    \"purchaseValue\": 5.50,\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/beverage/toCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"beverage",
+								"toCart"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
