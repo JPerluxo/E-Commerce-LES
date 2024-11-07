@@ -5,9 +5,11 @@ import Table from 'react-bootstrap/Table';
 import { beverageApi } from '../../../../../apis/beverageApi';
 import CartItem from '../../molecules/CartItem';
 import CartPayment from '../../molecules/CartPayment';
+import { useUserContext } from '../../../hooks/useUserContext';
 
 const CartBox = ({ onAlert }) => {
   const [products, setProducts] = useState([]);
+  const { userId } = useUserContext();
 
   const handleRemove = (beverageId) => {
     setProducts(prevProducts => prevProducts.filter(product => product.beverageId !== beverageId));
@@ -27,18 +29,20 @@ const CartBox = ({ onAlert }) => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const response = await beverageApi.getCartBeverages();
-        if (response.status === 200) {
-          setProducts(response.data);
-        } else {
-          onAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
+      if (userId) {
+        try {
+          const response = await beverageApi.getCartBeverages(userId);
+          if (response.status === 200) {
+            setProducts(response.data);
+          } else {
+            onAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
+          }
+        } catch (error) {
+          onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
         }
-      } catch (error) {
-        onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
       }
     })();
-  }, [onAlert]);
+  }, [onAlert, userId]);
 
   return (<div className={styles.CartBox}>
     <div className={styles.CartTable}>
@@ -50,7 +54,7 @@ const CartBox = ({ onAlert }) => {
       </Table>
       <p className={`fw-bold ${styles.CartTotal}`}>Total da compra: {`R$${calculateTotal()}`}</p>
     </div>
-    <CartPayment onAlert={onAlert} products={products}/>
+    <CartPayment onAlert={onAlert} products={products} userId={userId}/>
   </div>)
 }
 

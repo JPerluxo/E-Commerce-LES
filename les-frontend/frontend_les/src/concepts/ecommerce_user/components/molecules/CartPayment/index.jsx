@@ -5,13 +5,12 @@ import { userApi } from '../../../../../apis/usersApi';
 import { couponsApi } from '../../../../../apis/couponsApi';
 import { beverageApi } from '../../../../../apis/beverageApi';
 import Select from '../../../../shared/components/molecules/Select';
-import { useUserContext } from '../../../hooks/useUserContext';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Input from '../../../../shared/components/molecules/Input';
 import Button from 'react-bootstrap/Button';
 
-const CartPayment = ({ onAlert, products }) => {
+const CartPayment = ({ onAlert, products, userId }) => {
   const [deliveryAddresses, setDeliveryAddresses] = useState([]);
   const [selectedDeliveryAddress, setSelectedDeliveryAddress] = useState(null);
   const [billingAddresses, setBillingAddresses] = useState([]);
@@ -20,7 +19,6 @@ const CartPayment = ({ onAlert, products }) => {
   const [coupons, setCoupons] = useState([]);
   const [selectedCreditCards, setSelectedCreditCards] = useState([]);
   const [selectedCoupons, setSelectedCoupons] = useState([]);
-  const { userId } = useUserContext();
 
   const formatAdresses = (adressesList) => {
     return adressesList.map(({ id, street, number, neighborhood, city, state, country }) => ({
