@@ -9,7 +9,7 @@ class GetCartBeveragesStategy {
         const transaction = await sequelize.transaction();
         try {
             const cartItems = (await PurchaseDAO.find('cpr_cli_id', data.userId, transaction))
-                .filter(cartItem => cartItem.purchaseStatus === 1);;
+                .filter(cartItem => cartItem.purchaseStatus === 1);
 
             const beverages = await (async () => {
                 const beveragesList = await GetBeveragesStategy.execute();

@@ -15,6 +15,7 @@ class SaveCartObjectStrategy {
             await transaction.commit();
             return { status: 200, message: `${beverage?.toJSON()?.label} adicionado ao carrinho!` };
         } catch (error) {
+            await transaction.rollback();
             if (cartObject.beverageId) {
                 error.beverageLabel = beverage?.toJSON()?.label || "produto";
             } else {
