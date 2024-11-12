@@ -23,7 +23,7 @@ router.post('/toCart', async (req, res) => {
 });
 
 router.get('/getCart', async (req, res) => {
-    const userId = req.body;
+    const userId = req.query;
 
     try {
         const result = await BeverageService.getCartBeverages(userId);
