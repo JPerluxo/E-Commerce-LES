@@ -34,6 +34,44 @@ export const beverageApi = {
     return response.data;
   },
 
+  updateCartBeverageQuantity: async function ( beverageObject, cancel = false) {
+    // const response = await api.request({
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/updateCartQuantity`,
+    //   method: "POST",
+    //   data: JSON.stringify(beverageObject),
+    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    // })
+
+    var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+      status: 200
+
+      // resposta simulada de erro:
+      // status: 500,
+      // message: "Erro ao processar a compra!"
+    }
+  
+    return response;
+  },
+
+  removeBeveragefromCart: async function ( beverageObject, cancel = false) {
+    // const response = await api.request({
+    //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/removeFromCart`,
+    //   method: "POST",
+    //   data: JSON.stringify(beverageObject),
+    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    // })
+
+    var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
+      status: 200,
+      message: "Produto removido do carrinho com sucesso!"
+      // resposta simulada de erro:
+      // status: 500,
+      // message: "Erro ao processar a compra!"
+    }
+  
+    return response;
+  },
+
   checkoutBeverages: async function ( checkoutObject, cancel = false) {
     // const response = await api.request({
     //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/checkout?checkoutObject=${checkoutObject}`,

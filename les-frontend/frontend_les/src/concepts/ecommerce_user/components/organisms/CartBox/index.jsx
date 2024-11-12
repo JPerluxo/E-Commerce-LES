@@ -11,16 +11,35 @@ const CartBox = ({ onAlert }) => {
   const [products, setProducts] = useState([]);
   const { userId } = useUserContext();
 
-  const handleRemove = (beverageId) => {
-    setProducts(prevProducts => prevProducts.filter(product => product.beverageId !== beverageId));
+  const handleRemove = async (beverageId) => {
+    try {
+      const response = await beverageApi.removeBeveragefromCart({ "userId": userId, "beverageId": beverageId });
+      if (response.status === 200) {
+        setProducts(prevProducts => prevProducts.filter(product => product.beverageId !== beverageId));
+        onAlert({status: response.status, message: response.message});
+      } else {
+        onAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
+      }
+    } catch (error) {
+      onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
+    }
   };
 
-  const updateQuantity = (beverageId, newQuantity) => {
-    setProducts(prevProducts => 
-      prevProducts.map(product =>
-        product.beverageId === beverageId ? { ...product, beverageQuantity: newQuantity } : product
-      )
-    );
+  const updateQuantity = async (beverageId, newQuantity) => {
+    try {
+      const response = await beverageApi.updateCartBeverageQuantity({ "userId": userId, "beverageId": beverageId, "newQuantity": newQuantity });
+      if (response.status === 200) {
+        setProducts(prevProducts => 
+          prevProducts.map(product =>
+            product.beverageId === beverageId ? { ...product, beverageQuantity: newQuantity } : product
+          )
+        );
+      } else {
+        onAlert({status: response.status, message: `Erro: ${response.status} - ${response.message}`});
+      }
+    } catch (error) {
+      onAlert({status: 500, message: error?.response?.data?.message ?? `Erro: ${error.message}`});
+    }
   };
 
   const calculateTotal = () => {
