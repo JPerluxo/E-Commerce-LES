@@ -22,4 +22,15 @@ router.post('/toCart', async (req, res) => {
     }
 });
 
+router.get('/getCart', async (req, res) => {
+    const userId = req.body;
+
+    try {
+        const result = await BeverageService.getCartBeverages(userId);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao buscar produtos do carrinho: ${error}`, status: 500 });
+    }
+});
+
 module.exports = router;

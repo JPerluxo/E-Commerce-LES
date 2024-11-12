@@ -8,6 +8,20 @@ class PurchaseDAO {
             throw error;
         }
     }
+
+    static async find(field, value, transaction = null) {
+        try {
+            return await Purchase.findAll({
+                where: { [field]: value },
+                transaction
+            }).then(purchases => purchases.map(purchase => {
+                const { userId, ...purchaseWithoutUserId } = purchase.toJSON();
+                return purchaseWithoutUserId;
+            }));
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = PurchaseDAO;
