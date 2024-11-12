@@ -22,6 +22,17 @@ class PurchaseDAO {
             throw error;
         }
     }
+
+    static async delete(id, transaction = null) {
+        try {
+            return await Purchase.destroy({
+                where: { id: id },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = PurchaseDAO;
