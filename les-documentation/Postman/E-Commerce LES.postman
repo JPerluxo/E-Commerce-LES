@@ -203,23 +203,11 @@
 			"item": [
 				{
 					"name": "Buscar todos os itens do Carrinho",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:3001/beverage/getCart",
+							"raw": "http://localhost:3001/beverage/getCart?userId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -228,6 +216,70 @@
 							"path": [
 								"beverage",
 								"getCart"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover item do Carrinho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"beverageId\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/beverage/removeFromCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"beverage",
+								"removeFromCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar quantidade do produto no Carrinho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"purchaseId\": 6,\r\n    \"newQuantity\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/beverage/updateCartQuantity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"beverage",
+								"updateCartQuantity"
 							]
 						}
 					},
