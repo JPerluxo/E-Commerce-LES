@@ -5,6 +5,7 @@ const ValidateCartObjectStrategy = require('../strategies/ValidateCartObjectStra
 const SaveCartObjectStrategy = require('../strategies/SaveCartObjectStrategy');
 const ValidateUserIdStrategy = require('../strategies/ValidateUserIdStrategy');
 const GetCartBeveragesStrategy = require('../strategies/GetCartBeveragesStrategy');
+const UpdateBeverageQuantityStrategy = require('../strategies/UpdateBeverageQuantityStrategy');
 const RemoveCartBeverageStrategy = require('../strategies/RemoveCartBeverageStrategy');
 
 class BeverageService {
@@ -31,6 +32,15 @@ class BeverageService {
         try {
             await ValidateUserIdStrategy.execute(userId);
             return await GetCartBeveragesStrategy.execute(userId);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async updateCartBeverageQuantity(beverageObject) {
+        try {
+            await ValidateUserIdStrategy.execute(beverageObject);
+            return await UpdateBeverageQuantityStrategy.execute(beverageObject);
         } catch (error) {
             throw error;
         }

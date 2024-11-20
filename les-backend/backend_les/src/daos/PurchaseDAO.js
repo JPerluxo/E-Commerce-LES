@@ -9,6 +9,18 @@ class PurchaseDAO {
         }
     }
 
+    static async update(data, transaction = null) {
+        try {
+            const { id, ...fieldsToUpdate } = data;
+            return await Purchase.update(fieldsToUpdate, {
+                where: { id: id },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
     static async find(field, value, transaction = null) {
         try {
             return await Purchase.findAll({

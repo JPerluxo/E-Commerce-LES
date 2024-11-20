@@ -33,6 +33,17 @@ router.get('/getCart', async (req, res) => {
     }
 });
 
+router.post('/updateCartQuantity', async (req, res) => {
+    const beverageObject = req.body;
+
+    try {
+        const result = await BeverageService.updateCartBeverageQuantity(beverageObject);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao atualizar a quantidade do produto no carrinho: ${error}`, status: 500 });
+    }
+});
+
 router.post('/removeFromCart', async (req, res) => {
     const beverageObject = req.body;
 
