@@ -7,7 +7,7 @@ class UpdateBeverageQuantityStrategy {
         try {
             if (!data.purchaseId) throw new Error("O Identificador do produto é obrigatório");
 
-            const existingPurchases = await PurchaseDAO.find("cpr_cli_id", data.userId);
+            const existingPurchases = await PurchaseDAO.find("cpr_cli_id", data.userId, transaction);
             const purchaseId = parseInt(data.purchaseId, 10);
             if (isNaN(purchaseId) || !existingPurchases.map(purchase => purchase.beverageId).includes(purchaseId)) {
                 throw new Error('O Identificador do produto deve ter um valor válido.');
@@ -21,7 +21,7 @@ class UpdateBeverageQuantityStrategy {
             const purchaseObj = existingPurchases.find(purchase => purchase.beverageId == purchaseId);
             if (purchaseObj.beverageQuantity === beverageQuantity) throw new Error("O valor da quantidade do produto não pode ser o mesmo.");
             
-            PurchaseDAO.update({...purchaseObj, "beverageQuantity": beverageQuantity});
+            PurchaseDAO.update({...purchaseObj, "beverageQuantity": beverageQuantity}, transaction);
 
             await transaction.commit();
             return { status: 200 };
