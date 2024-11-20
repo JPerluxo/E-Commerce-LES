@@ -21,7 +21,7 @@ class UpdateBeverageQuantityStrategy {
             const purchaseObj = existingPurchases.find(purchase => purchase.beverageId == purchaseId);
             if (purchaseObj.beverageQuantity === beverageQuantity) throw new Error("O valor da quantidade do produto não pode ser o mesmo.");
             
-            PurchaseDAO.update({...purchaseObj, "beverageQuantity": beverageQuantity}, transaction);
+            await PurchaseDAO.update({...purchaseObj, "beverageQuantity": beverageQuantity}, transaction);
 
             await transaction.commit();
             return { status: 200 };

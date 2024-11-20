@@ -27,7 +27,7 @@ const CartBox = ({ onAlert }) => {
 
   const updateQuantity = async (beverageId, newQuantity) => {
     try {
-      const response = await beverageApi.updateCartBeverageQuantity({ "userId": userId, "beverageId": beverageId, "newQuantity": newQuantity });
+      const response = await beverageApi.updateCartBeverageQuantity({ "userId": userId, "purchaseId": beverageId, "newQuantity": newQuantity });
       if (response.status === 200) {
         setProducts(prevProducts => 
           prevProducts.map(product =>
