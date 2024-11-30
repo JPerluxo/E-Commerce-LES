@@ -55,4 +55,15 @@ router.post('/removeFromCart', async (req, res) => {
     }
 });
 
+router.post('/checkout', async (req, res) => {
+    const checkoutObject = req.body;
+
+    try {
+        const result = await BeverageService.checkoutBeverages(checkoutObject);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao processar a compra! ${error}`, status: 500 });
+    }
+});
+
 module.exports = router;
