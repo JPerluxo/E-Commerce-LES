@@ -7,6 +7,7 @@ import { beverageApi } from '../../../../../apis/beverageApi';
 import Select from '../../../../shared/components/molecules/Select';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../../../shared/components/molecules/Input';
 import Button from 'react-bootstrap/Button';
 
@@ -19,6 +20,8 @@ const CartPayment = ({ onAlert, products, userId }) => {
   const [coupons, setCoupons] = useState([]);
   const [selectedCreditCards, setSelectedCreditCards] = useState([]);
   const [selectedCoupons, setSelectedCoupons] = useState([]);
+
+  const navigate = useNavigate();
 
   const formatAdresses = (adressesList) => {
     return adressesList.map(({ id, street, number, neighborhood, city, state, country }) => ({
@@ -57,6 +60,10 @@ const CartPayment = ({ onAlert, products, userId }) => {
     const response = await beverageApi.checkoutBeverages(checkoutObject);
     onAlert({ status: response.status, message: response.message });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      navigate('/user/home');
+    }, 5000);
   }
 
   const handleCreditCardChange = (id) => {
