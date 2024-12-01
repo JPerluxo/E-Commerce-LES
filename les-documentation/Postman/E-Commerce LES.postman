@@ -313,6 +313,32 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Buscar cupons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/coupon/getByUserId?userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"coupon",
+								"getByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
