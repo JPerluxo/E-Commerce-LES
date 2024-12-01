@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dc0eb993-8ea4-410f-bb56-ff98dea34349",
+		"_postman_id": "5b00b5ce-14b0-4503-be83-4cd04cf32f8f",
 		"name": "E-Commerce LES",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23675547"
+		"_exporter_id": "40115204"
 	},
 	"item": [
 		{
@@ -280,6 +280,35 @@
 							"path": [
 								"beverage",
 								"updateCartQuantity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirmar compra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n          \"checkoutId\": 14,\r\n          \"checkoutDate\": \"2024-12-01\",\r\n          \"checkoutStatus\": 2,\r\n          \"userId\": 1,\r\n          \"deliveryAddress\": 1,\r\n          \"BillingAddress\": 1\r\n        }\r\n    ],\r\n    \"paymentMethods\": {\r\n        \"creditCards\": [1],\r\n        \"coupons\": [2]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/beverage/checkout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"beverage",
+								"checkout"
 							]
 						}
 					},
