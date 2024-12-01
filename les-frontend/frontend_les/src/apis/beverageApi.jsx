@@ -59,23 +59,15 @@ export const beverageApi = {
   },
 
   checkoutBeverages: async function ( checkoutObject, cancel = false) {
-    // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/beverage/checkout?checkoutObject=${checkoutObject}`,
-    //   method: "POST",
-    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
-    // })
+    const response = await api.request({
+      url: `${process.env.REACT_APP_BACKEND_URL}/beverage/checkout`,
+      method: "POST",
+      data: JSON.stringify(checkoutObject),
+      headers: { 'Content-Type': 'application/json' },
+      signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    })
 
-    var response = { //resposta mockada para testes, provavelmente vai mudar quando implementar o backend
-      status: 200,
-      message: "Compra processada com sucesso!"
-
-      // resposta simulada de erro:
-      // status: 500,
-      // message: "Erro ao processar a compra!"
-    }
-    console.log(checkoutObject);
-
-    return response;
+    return response.data;
   }
 }
 

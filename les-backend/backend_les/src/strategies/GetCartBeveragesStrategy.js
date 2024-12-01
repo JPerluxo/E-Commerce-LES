@@ -22,9 +22,10 @@ class GetCartBeveragesStategy {
                 
                 return beverage
                 ? {
+                    purchaseId: cartItem.id,
                     beverageId: cartItem.beverageId,
                     beverageLabel: beverage.label,
-                    beverageValue: cartItem.purchaseValue,
+                    beverageValue: cartItem.purchaseValue / cartItem.beverageQuantity,
                     beverageYear: beverage.year,
                     beverageManufacturer: beverage.manufacturer,
                     beverageCountry: beverage.country,

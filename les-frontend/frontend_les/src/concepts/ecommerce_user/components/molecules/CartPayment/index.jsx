@@ -38,13 +38,11 @@ const CartPayment = ({ onAlert, products, userId }) => {
 
   const checkout = async () => {
     const checkoutObject = {
-      "products": products.map(({ beverageId, beverageQuantity, beverageValue }) => {
+      "products": products.map(({ purchaseId, }) => {
         return {
-          "beverageId": beverageId,
-          "beverageQuantity": beverageQuantity,
-          "checkoutDate": Date.now(),
+          "checkoutId": purchaseId,
+          "checkoutDate": new Date(Date.now()).toISOString().split('T')[0],
           "checkoutStatus": process.env.REACT_APP_IN_PAYMENT_MADE_STATUS,
-          "checkoutValue": (beverageValue * beverageQuantity).toFixed(2),
           "userId": userId,
           "deliveryAddress": selectedDeliveryAddress,
           "BillingAddress": selectedBillingAddress
