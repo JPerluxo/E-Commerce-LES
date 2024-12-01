@@ -39,6 +39,17 @@ class CouponDAO {
             throw error;
         }
     }
+
+    static async delete(field, value, transaction = null) {
+        try {
+            return await Coupon.destroy({
+                where: { [field]: value },
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = CouponDAO;
