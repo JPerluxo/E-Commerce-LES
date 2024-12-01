@@ -16,4 +16,7 @@ app.use('/user', userController);
 const beverageController = require('./src/controllers/beverageController');
 app.use('/beverage', beverageController);
 
+const couponController = require('./src/controllers/couponController');
+app.use('/coupon', couponController);
+
 module.exports = app;
