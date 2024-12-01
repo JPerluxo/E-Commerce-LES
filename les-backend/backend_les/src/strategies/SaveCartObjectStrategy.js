@@ -11,7 +11,12 @@ class SaveCartObjectStrategy {
             cartObject.purchaseDeliveryAddress = null;
             cartObject.purchaseBillingAddress = null;
 
-            await PurchaseDAO.save(cartObject, transaction);
+            const existingCartItem = (await PurchaseDAO.find("cpr_cli_id", cartObject.userId)).find(cartItem => cartItem.purchaseStatus === parseInt(cartObject.purchaseStatus) && cartItem.beverageId === cartObject.beverageId);
+            if (existingCartItem) {
+                await PurchaseDAO.update({...existingCartItem, "beverageQuantity": (parseInt(existingCartItem.beverageQuantity) + parseInt(cartObject.beverageQuantity))}, transaction);
+            }
+
+            else await PurchaseDAO.save(cartObject, transaction);
             await transaction.commit();
             return { status: 200, message: `${beverage?.toJSON()?.label} adicionado ao carrinho!` };
         } catch (error) {
