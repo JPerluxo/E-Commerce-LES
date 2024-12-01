@@ -1,6 +1,6 @@
 const UserDAO = require('../daos/UserDAO');
 const AddressDAO = require('../daos/AddressDAO');
-const BeverageDAO = require('../daos/BeverageDAO');
+const PurchaseDAO = require('../daos/PurchaseDAO');
 
 class ValidateCheckoutProductsStrategy {
     static async execute(checkoutObject) {
@@ -10,46 +10,36 @@ class ValidateCheckoutProductsStrategy {
             }
             
             for (const product of checkoutObject.products) {
-                const missingFields = ['beverageId', 'beverageQuantity', 'checkoutDate', 'checkoutStatus', 'checkoutValue', 'userId', 'deliveryAddress', 'BillingAddress'].filter(field => !(field in product));
-
+                const missingFields = ['checkoutId', 'checkoutDate', 'checkoutStatus', 'userId', 'deliveryAddress', 'BillingAddress'].filter(field => !(field in product));
+                
                 if (missingFields.length > 0) {
                     throw new Error(`Os seguintes campos estão faltando no campo "Products": ${missingFields.join(', ')}.`);
                 }
-
-                if (!product.beverageId || !product.beverageQuantity || !product.checkoutDate || !product.checkoutStatus || !product.checkoutValue || !product.userId || !product.deliveryAddress || !product.BillingAddress) {
+                
+                if (!product.checkoutId || !product.checkoutDate || !product.checkoutStatus || !product.userId || !product.deliveryAddress || !product.BillingAddress) {
                     throw new Error('Todos os campos obrigatórios devem estar preenchidos.');
                 }
-
-                const existingBeverages = await BeverageDAO.findAll().then(beverages => beverages.map(beverage => beverage.id));
-                const beverageId = parseInt(product.beverageId, 10);
-                if (isNaN(beverageId) || !existingBeverages.includes(beverageId)) {
-                    throw new Error('O campo "beverageId" deve ter um valor válido.');
+                
+                const existingUsers = await UserDAO.findAll().then(users => users.map(user => user.id));
+                const userId = parseInt(product.userId, 10);
+                if (isNaN(userId) || !existingUsers.includes(userId)) {
+                    throw new Error('O campo "Identificador do cliente" deve ter um valor válido.');
                 }
 
-                const beverageQuantity = parseInt(product.beverageQuantity, 10);
-                if (isNaN(beverageQuantity) || beverageQuantity <= 0) {
-                    throw new Error('O campo "beverageQuantity" deve ter um valor válido.');
+                const existingPurchases = await PurchaseDAO.find("cpr_cli_id", userId);
+                const checkoutId = parseInt(product.checkoutId, 10);
+                if (isNaN(checkoutId) || !existingPurchases.map(purchase => purchase.id).includes(checkoutId)) {
+                    throw new Error('O Identificador da compra deve ter um valor válido.');
                 }
                 
                 const checkoutDate = product.checkoutDate;
-                if (!(/^\d+$/.test(checkoutDate)) || !(parseInt(checkoutDate, 10) <= Math.floor(Date.now() / 1000))) {
+                if (typeof checkoutDate !== 'string' || isNaN(Date.parse(checkoutDate))) {
                     throw new Error('O campo "checkoutDate" deve ter um valor válido.');
                 }
 
                 const checkoutStatus = parseInt(product.checkoutStatus, 10);
                 if (isNaN(checkoutStatus) || ![1, 2, 3, 4, 5].includes(checkoutStatus)) {
                     throw new Error('O campo "checkoutStatus" deve ter um valor válido.');
-                }
-
-                const checkoutValue = parseFloat(product.checkoutValue, 10);
-                if (isNaN(checkoutValue) || checkoutValue <= 0) {
-                    throw new Error('O campo "Valor da bebida" deve ter um valor válido.');
-                }
-
-                const existingUsers = await UserDAO.findAll().then(users => users.map(user => user.id));
-                const userId = parseInt(product.userId, 10);
-                if (isNaN(userId) || !existingUsers.includes(userId)) {
-                    throw new Error('O campo "Identificador do cliente" deve ter um valor válido.');
                 }
 
                 const userAddresses = await AddressDAO.find('end_cli_id', userId).then(addresses => addresses.map(address => address.id));

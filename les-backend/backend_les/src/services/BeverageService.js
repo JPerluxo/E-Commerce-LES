@@ -8,6 +8,8 @@ const GetCartBeveragesStrategy = require('../strategies/GetCartBeveragesStrategy
 const UpdateBeverageQuantityStrategy = require('../strategies/UpdateBeverageQuantityStrategy');
 const RemoveCartBeverageStrategy = require('../strategies/RemoveCartBeverageStrategy');
 const ValidateCheckoutProductsStrategy = require('../strategies/ValidateCheckoutProductsStrategy');
+const ValidateCheckoutPaymentMethodsStrategy = require('../strategies/ValidateCheckoutPaymentMethodsStrategy');
+const CheckoutBeveragesStrategy = require('../strategies/CheckoutBeveragesStrategy');
 
 class BeverageService {
     static async getBeverages() {
@@ -59,6 +61,8 @@ class BeverageService {
     static async checkoutBeverages(checkoutObject) {
         try {
             await ValidateCheckoutProductsStrategy.execute(checkoutObject);
+            await ValidateCheckoutPaymentMethodsStrategy.execute(checkoutObject);
+            return await CheckoutBeveragesStrategy.execute(checkoutObject);
         } catch (error) {
             throw error;
         }

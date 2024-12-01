@@ -10,6 +10,7 @@ class SaveCartObjectStrategy {
             cartObject.purchaseDate = null;
             cartObject.purchaseDeliveryAddress = null;
             cartObject.purchaseBillingAddress = null;
+            cartObject.purchaseValue *= cartObject.beverageQuantity;
 
             const existingCartItem = (await PurchaseDAO.find("cpr_cli_id", cartObject.userId)).find(cartItem => cartItem.purchaseStatus === parseInt(cartObject.purchaseStatus) && cartItem.beverageId === cartObject.beverageId);
             if (existingCartItem) {
