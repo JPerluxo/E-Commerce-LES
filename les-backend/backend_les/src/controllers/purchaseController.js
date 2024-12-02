@@ -11,4 +11,15 @@ router.get('/table', async (req, res) => {
     }
 });
 
+router.post('/updateStatus', async (req, res) => {
+    const purchaseObject = req.body;
+
+    try {
+        const result = await PurchaseService.updatePurchaseStatus(purchaseObject);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao alterar status da compra! ${error.message}`, status: 500 });
+    }
+});
+
 module.exports = router;
