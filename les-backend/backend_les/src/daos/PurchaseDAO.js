@@ -35,6 +35,16 @@ class PurchaseDAO {
         }
     }
 
+    static async findAll(transaction = null) {
+        try {
+            return await Purchase.findAll({
+                transaction
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
     static async delete(id, transaction = null) {
         try {
             return await Purchase.destroy({
