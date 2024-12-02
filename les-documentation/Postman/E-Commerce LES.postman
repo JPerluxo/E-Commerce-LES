@@ -292,7 +292,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"products\": [\r\n        {\r\n          \"checkoutId\": 14,\r\n          \"checkoutDate\": \"2024-12-01\",\r\n          \"checkoutStatus\": 2,\r\n          \"userId\": 1,\r\n          \"deliveryAddress\": 1,\r\n          \"BillingAddress\": 1\r\n        }\r\n    ],\r\n    \"paymentMethods\": {\r\n        \"creditCards\": [1],\r\n        \"coupons\": [2]\r\n    }\r\n}",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n          \"checkoutId\": 26,\r\n          \"checkoutDate\": \"2024-12-02\",\r\n          \"checkoutStatus\": 2,\r\n          \"userId\": 2,\r\n          \"deliveryAddress\": null,\r\n          \"BillingAddress\": null\r\n        }\r\n    ],\r\n    \"paymentMethods\": {\r\n        \"creditCards\": [2],\r\n        \"coupons\": []\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -335,6 +335,60 @@
 									"key": "userId",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gerenciamento Compras",
+			"item": [
+				{
+					"name": "Buscar todas as Compras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/purchase/table",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"purchase",
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar status da Compra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"purchaseId\": 28,\r\n    \"purchaseStatus\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/purchase/updateStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"purchase",
+								"updateStatus"
 							]
 						}
 					},
