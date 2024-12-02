@@ -18,7 +18,7 @@ class GetPurchasesTableStrategy {
                     beverage: beverageLabel,
                     quantity: purchase.beverageQuantity,
                     purchaseDate: purchase.purchaseDate,
-                    purchaseValue: purchase.purchaseValue,
+                    purchaseValue: `R$${purchase.purchaseValue}`,
                     purchaseStatus: purchase.purchaseStatus,
                     userName: userName,
                 });
