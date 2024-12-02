@@ -57,13 +57,16 @@ const CartPayment = ({ onAlert, products, userId }) => {
       }
     }
 
-    const response = await beverageApi.checkoutBeverages(checkoutObject);
-    onAlert({ status: response.status, message: response.message });
+    try{
+      const response = await beverageApi.checkoutBeverages(checkoutObject);
+      onAlert({ status: response.status, message: response.message });
+      setTimeout(() => {
+        navigate('/user/home');
+      }, 5000);
+    } catch (error) {
+      onAlert({status: 500, message: error?.response?.data?.message ?? error.message});
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    setTimeout(() => {
-      navigate('/user/home');
-    }, 5000);
   }
 
   const handleCreditCardChange = (id) => {
