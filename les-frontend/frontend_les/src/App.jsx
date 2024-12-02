@@ -7,6 +7,7 @@ import Cart from './concepts/ecommerce_user/components/templates/Cart'; //CARRIN
 import AdminHome from './concepts/ecommerce_admin/components/templates/Home'; //HOMEPAGE DO ADMIN
 import ManageUser from './concepts/ecommerce_admin/components/templates/ManageUser'; //GERENCIAMENTO DE USUÁRIO (CONSULTA E EXCLUSÃO)
 import UserForm from './concepts/ecommerce_admin/components/templates/UserForm'; //FORMULÁRIO DE USUÁRIO (CADASTRO OU EDIÇÃO)
+import ManagePurchase from './concepts/ecommerce_admin/components/templates/ManagePurchase'; //GERENCIAMENTO DE COMPRAS
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="manageUser" element={<ManageUser/>}/>
               <Route path="manageUser/new" element={<UserForm newForm/>}/>
               <Route path="manageUser/edit" element={<UserForm/>}/>
+              <Route path="managePurchase" element={<ManagePurchase/>}/>
             </Routes>
           }
         />

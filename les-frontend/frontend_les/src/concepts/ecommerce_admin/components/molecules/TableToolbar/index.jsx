@@ -8,7 +8,7 @@ import { RiFilterLine } from "react-icons/ri";
 import { RiFilterOffLine } from "react-icons/ri";
 import { RiPlayListAddFill } from "react-icons/ri";
 
-const TableToolbar = ({ content, onFilter, filterProperty }) => {
+const TableToolbar = ({ content, onFilter, filterProperty, tableType }) => {
   const [filterValue, setFilterValue] = useState('');
   const placeholderText = ((content.rows?.length > 0 && content.collumns[Object.keys(content.rows[0]).indexOf(filterProperty)]) || filterProperty)
   .toLowerCase()
@@ -39,7 +39,15 @@ const TableToolbar = ({ content, onFilter, filterProperty }) => {
         <Button variant="outline-secondary" onClick={handleFilter}><RiFilterLine/></Button>
         <Button variant="outline-secondary" onClick={handleClear}><RiFilterOffLine/></Button>
       </InputGroup>
-      <Button variant="success" href={`${window.location.pathname}/new`}><RiPlayListAddFill/></Button>
+      {(() => {
+          switch (tableType) {
+            default:
+              return <Button variant="success" href={`${window.location.pathname}/new`}><RiPlayListAddFill/></Button>
+
+            case "purchases":
+              return <></>
+          }
+      })()}
     </div>
   )
 }

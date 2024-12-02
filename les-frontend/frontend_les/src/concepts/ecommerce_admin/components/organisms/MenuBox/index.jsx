@@ -11,7 +11,7 @@ const MenuBox = () => {
     <div className={styles.menu}>
       <ul className={styles.menuBox}>
         <MenuItem link="./manageUser" image={GerenciarClientePng} text="Gerenciar Cliente"/>
-        <MenuItem link="./manageOrders" image={GerenciarPedidoPng} text="Gerenciar Pedido"/>
+        <MenuItem link="./managePurchase" image={GerenciarPedidoPng} text="Gerenciar Pedido"/>
         <MenuItem link="#" image={IndicadoresPng} text="Indicadores"/>
       </ul>
     </div>
