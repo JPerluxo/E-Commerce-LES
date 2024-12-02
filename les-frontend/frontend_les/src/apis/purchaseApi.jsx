@@ -1,28 +1,15 @@
-// import { api } from './configs/axiosConfig';
-// import { defineCancelApiObject } from './configs/axiosUtils';
+import { api } from './configs/axiosConfig';
+import { defineCancelApiObject } from './configs/axiosUtils';
 
 export const purchaseApi = {
   getPurchasesTable: async function (cancel = false) {
-    // const response = await api.request({
-    //   url: `${process.env.REACT_APP_BACKEND_URL}/purchases/table`,
-    //   method: "GET",
-    //   signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
-    // })
+    const response = await api.request({
+      url: `${process.env.REACT_APP_BACKEND_URL}/purchase/table`,
+      method: "GET",
+      signal: cancel ? cancelApiObject[this.get.name].handleRequestCancellation().signal : undefined,
+    })
 
-    // return response.data;
-
-    var response = { //resposta mockada para testes
-      status: 200,
-      data: {
-        collumns: ["ID", "PRODUTO", "QUANTIDADE", "DATA", "VALOR", "CLIENTE", "STATUS DA COMPRA"],
-        rows: [
-          { id: 25, beverage: "Heineken", quantity: 5, purchaseDate: "2024-12-02", purchaseValue: 19.50, purchaseStatus: 2, userName: "Jefferson Perluxo Clemente" },
-          { id: 26, beverage: "Heineken", quantity: 1, purchaseDate: "2024-12-02", purchaseValue: 3.90, purchaseStatus: 2, userName: "Jefferson Perluxo Clemente" },
-        ]
-      }
-    }
-
-    return response;
+    return response.data;
   },
 
   updatePurchaseStatus: async function ( purchaseObject, cancel = false) {
@@ -47,4 +34,4 @@ export const purchaseApi = {
   }
 }
 
-// const cancelApiObject = defineCancelApiObject(purchaseApi)
+const cancelApiObject = defineCancelApiObject(purchaseApi)
