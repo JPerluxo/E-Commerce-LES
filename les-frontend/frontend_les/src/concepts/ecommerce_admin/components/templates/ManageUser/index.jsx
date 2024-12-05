@@ -3,7 +3,7 @@ import styles from './index.module.css';
 
 import Header from '../../../../shared/components/organisms/Header';
 import Footer from '../../../../shared/components/molecules/Footer';
-import TableBox from '../../organisms/TableBox';
+import TableBox from '../../../../shared/components/organisms/TableBox';
 import Alert from '../../../../shared/components/molecules/Alert';
 import { userApi } from '../../../../../apis/usersApi';
 

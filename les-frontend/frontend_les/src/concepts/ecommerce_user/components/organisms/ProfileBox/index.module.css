@@ -15,7 +15,7 @@
     margin: 3rem ;
 }
 
-.ProfileMenu form {
+.ProfileMenu form, .ProfileMenu div > div:nth-of-type(2) > div {
     box-shadow: none;
     
     border-radius: 0;

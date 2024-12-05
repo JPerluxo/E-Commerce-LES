@@ -45,6 +45,7 @@ const TableToolbar = ({ content, onFilter, filterProperty, tableType }) => {
               return <Button variant="success" href={`${window.location.pathname}/new`}><RiPlayListAddFill/></Button>
 
             case "purchases":
+            case "userPurchases":
               return <></>
           }
       })()}

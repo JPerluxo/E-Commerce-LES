@@ -18,6 +18,17 @@
     transform: translateY(-5px);
 }
 
+.userPurchasesDiv {
+    display: inline-flex;
+    gap: 1vh;
+}
+
+.consumed {
+    font-style: italic;
+    font-size: large;
+    color: #198754;
+}
+
 @media screen and ((max-width: 768px)) {
     .editIcon {
       margin: 0;

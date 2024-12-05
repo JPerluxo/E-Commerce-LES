@@ -5,7 +5,8 @@ import FormCheck from 'react-bootstrap/FormCheck';
 import { BsPencilSquare } from "react-icons/bs";
 import { IoTrashOutline } from "react-icons/io5";
 import { purchaseApi } from '../../../../../apis/purchaseApi';
-import Select from '../../../../shared/components/molecules/Select';
+import Select from '../Select';
+import Button from 'react-bootstrap/Button';
 
 const TableRow = ({ rowContent, onAlert, deleteFunction, tableType }) => {
   const handleDelete = async () => {
@@ -21,8 +22,26 @@ const TableRow = ({ rowContent, onAlert, deleteFunction, tableType }) => {
   };
 
   const IGNORED_FIELDS = {
-    purchases: ["purchaseStatus"]
+    purchases: ["purchaseStatus"],
+    userPurchases: ["id", "hasBeenConsumed"],
   };
+
+  const handleExchangeAndReturn = async (type) => {
+    const purchaseObject = {
+      purchaseId: rowContent.id,
+      type: type
+    };
+
+    try {
+      const response = await purchaseApi.requestExchangeAndReturn(purchaseObject);
+      onAlert({ status: response.status, message: response.message });
+      setTimeout(() => window.location.reload(), 3000);
+    }
+    
+    catch (error) {
+      onAlert({ status: 500, message: error?.response?.data?.message ?? `Erro ao solicitar: ${error.message}` });
+    }
+  }
 
   return (<tr>
     {Object.entries(rowContent)
@@ -61,6 +80,12 @@ const TableRow = ({ rowContent, onAlert, deleteFunction, tableType }) => {
                 onAlert({ status: response.status, message: response.message });
               })()}
               />
+
+            case "userPurchases":
+              return rowContent.hasBeenConsumed ? <div className={styles.userPurchasesDiv}>
+                <Button variant="outline-primary" onClick={async () => await handleExchangeAndReturn("Exchange")}>Solicitar Troca</Button>
+                <Button variant="outline-primary" onClick={async () => await handleExchangeAndReturn("Return")}>Solicitar Devolução</Button>
+              </div> : <p className={styles.consumed}>solicitado</p>
           }
       })()}
     </td>
