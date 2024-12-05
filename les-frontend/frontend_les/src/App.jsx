@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProvider } from './concepts/ecommerce_user/hooks/useUserContext';
 import Home from './concepts/ecommerce_user/components/templates/Home'; //HOMEPAGE DO USUÁRIO
 import Cart from './concepts/ecommerce_user/components/templates/Cart'; //CARRINHO DE COMPRAS
+import Profile from './concepts/ecommerce_user/components/templates/Profile';  //PÁGINA DE PERFIL DO USUÁRIO
 import AdminHome from './concepts/ecommerce_admin/components/templates/Home'; //HOMEPAGE DO ADMIN
 import ManageUser from './concepts/ecommerce_admin/components/templates/ManageUser'; //GERENCIAMENTO DE USUÁRIO (CONSULTA E EXCLUSÃO)
 import UserForm from './concepts/ecommerce_admin/components/templates/UserForm'; //FORMULÁRIO DE USUÁRIO (CADASTRO OU EDIÇÃO)
@@ -21,6 +22,7 @@ function App() {
               <Routes>
                 <Route path="home" element={<Home/>}/>
                 <Route path="cart" element={<Cart/>}/>
+                <Route path="profile" element={<Profile/>}/>
               </Routes>
             </UserProvider>
           }

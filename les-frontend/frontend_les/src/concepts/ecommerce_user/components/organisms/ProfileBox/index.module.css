@@ -1,0 +1,27 @@
+.ProfileBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProfileMenu {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #ffffffab;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+    border-radius: 1rem;
+    margin: 3rem ;
+}
+
+.ProfileMenu form {
+    box-shadow: none;
+    
+    border-radius: 0;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}

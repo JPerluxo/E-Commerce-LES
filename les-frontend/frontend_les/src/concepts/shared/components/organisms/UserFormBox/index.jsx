@@ -3,14 +3,14 @@ import styles from './index.module.css';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Input from '../../../../shared/components/molecules/Input';
-import Select from '../../../../shared/components/molecules/Select';
+import Input from '../../molecules/Input';
+import Select from '../../molecules/Select';
 import PhoneInput from '../../molecules/PhoneInput';
 import AddressInput from '../../molecules/AddressInput';
 import CreditCardInput from '../../molecules/CreditCardInput';
 import { userApi } from '../../../../../apis/usersApi';
 
-const UserFormBox = ({ data, setAlert }) => {
+const UserFormBox = ({ data, setAlert, hiddenFields = false }) => {
   const [name, setName] = useState(data ? data.name : '');
   const [cpf, setCpf] = useState(data ? data.cpf : '');
   const [isActive, setIsActive] = useState(data ? data.isActive : true);
@@ -57,7 +57,7 @@ const UserFormBox = ({ data, setAlert }) => {
       {!data && <>
         <Input id="nameInput" label="Nome completo" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
         <Input id="cpfInput" label="CPF" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} maxLenght="11"/>
-        <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={isActive} onChange={() => setIsActive(!isActive)}/>
+        {!hiddenFields && <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={isActive} onChange={() => setIsActive(!isActive)}/>}
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
         <Input id="passwordInput" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
@@ -102,14 +102,14 @@ const UserFormBox = ({ data, setAlert }) => {
 
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
-          <Button variant="secondary" href="../manageUser">Voltar</Button>
+          {!hiddenFields && <Button variant="secondary" href="../manageUser">Voltar</Button>}
         </div>
       </>}
 
       {data && <>
         <Input id="nameInput" label="Nome completo" type="text" value={data.name} onChange={(e) => setName(e.target.value)}/>
         <Input id="cpfInput" label="CPF" type="text" value={data.cpf} onChange={(e) => setCpf(e.target.value)} disabled/>
-        <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={data.isActive} onChange={() => setIsActive(!isActive)}/>
+        {!hiddenFields && <Input id="isActiveInput" label="Usuário Ativo?" type="checkbox" checked={data.isActive} onChange={() => setIsActive(!isActive)}/>}
         <Select id="genderInput" label="Gênero" options={[{value: 1, text: "Masculino"}, {value: 2, text: "Feminino"}, {value: 3, text: "Prefiro não informar"}]} value={data.gender} onChange={(e) => setGender(e.target.value)}/>
         <Input id="birthDateInput" label="Data de Nascimento" type="date" value={data.birthDate} onChange={(e) => setBirthDate(e.target.value)} disabled/>
         <Input id="passwordInput" label="Senha" type="password" value={data.password} onChange={(e) => setPassword(e.target.value)}/>
@@ -170,7 +170,7 @@ const UserFormBox = ({ data, setAlert }) => {
 
         <div className="d-flex justify-content-center gap-2">
           <Button variant="primary" onClick={handleSave}>Salvar</Button>
-          <Button variant="secondary" href="../manageUser">Voltar</Button>
+          {!hiddenFields && <Button variant="secondary" href="../manageUser">Voltar</Button>}
         </div>
       </>}
     </Form>

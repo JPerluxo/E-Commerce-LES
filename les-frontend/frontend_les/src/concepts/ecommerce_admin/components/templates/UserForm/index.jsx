@@ -2,7 +2,7 @@ import { React, useState, useEffect} from 'react';
 import styles from './index.module.css';
 
 import Alert from '../../../../shared/components/molecules/Alert';
-import UserFormBox from '../../organisms/UserFormBox';
+import UserFormBox from '../../../../shared/components/organisms/UserFormBox';
 import Footer from '../../../../shared/components/molecules/Footer';
 import { userApi } from '../../../../../apis/usersApi';
 import { useLocation } from 'react-router-dom';
