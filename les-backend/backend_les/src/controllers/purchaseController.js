@@ -22,4 +22,15 @@ router.post('/updateStatus', async (req, res) => {
     }
 });
 
+router.get('/getByUserId', async (req, res) => {
+    const userId = req.query.userId
+
+    try {
+        const result = await PurchaseService.getUserPurchases(userId);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao buscar compras do usuário: ${error}`, status: 500 });
+    }
+});
+
 module.exports = router;

@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const Coupon = require('../models/coupon');
 
 class CouponDAO {
@@ -46,6 +47,18 @@ class CouponDAO {
                 where: { [field]: value },
                 transaction
             });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async checkCouponCode(code, transaction = null) {
+        try {
+            const count = await Coupon.count({
+                where: { cpd_codigo: { [Op.like]: `%${code}%` } },
+                transaction
+            });
+            return count > 0;
         } catch (error) {
             throw error;
         }
