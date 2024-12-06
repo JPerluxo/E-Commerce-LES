@@ -397,6 +397,37 @@
 			]
 		},
 		{
+			"name": "Tela de Perfil do usuário",
+			"item": [
+				{
+					"name": "Buscar Compras por Id de Usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/purchase/getByUserId?userId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"purchase",
+								"getByUserId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Status",
 			"request": {
 				"method": "GET",
