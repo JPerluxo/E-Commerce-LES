@@ -82,10 +82,10 @@ const TableRow = ({ rowContent, onAlert, deleteFunction, tableType }) => {
               />
 
             case "userPurchases":
-              return rowContent.hasBeenConsumed ? <div className={styles.userPurchasesDiv}>
+              return rowContent.hasBeenConsumed ? <p className={styles.consumed}>solicitado</p> : <div className={styles.userPurchasesDiv}>
                 <Button variant="outline-primary" onClick={async () => await handleExchangeAndReturn("Exchange")}>Solicitar Troca</Button>
                 <Button variant="outline-primary" onClick={async () => await handleExchangeAndReturn("Return")}>Solicitar Devolução</Button>
-              </div> : <p className={styles.consumed}>solicitado</p>
+              </div>
           }
       })()}
     </td>
