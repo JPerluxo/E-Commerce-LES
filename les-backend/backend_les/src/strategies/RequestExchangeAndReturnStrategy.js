@@ -10,7 +10,7 @@ class RequestExchangeAndReturnStrategy {
             const couponCode = `${existingPurchase.id}${existingPurchase.purchaseDate.replace(/-/g, '')}`;
 
             const couponObj = {
-                code: couponCode,
+                code: `${requestObject.type == "Exchange" ? "TROCA" : "DEVOLUCAO"}${couponCode}`,
                 value: existingPurchase.purchaseValue,
                 isUsed: false,
                 type: (() => {switch(requestObject.type) {
