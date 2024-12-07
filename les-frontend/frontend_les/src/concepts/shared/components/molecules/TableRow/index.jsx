@@ -27,13 +27,13 @@ const TableRow = ({ rowContent, onAlert, deleteFunction, tableType }) => {
   };
 
   const handleExchangeAndReturn = async (type) => {
-    const purchaseObject = {
+    const requestObject = {
       purchaseId: rowContent.id,
       type: type
     };
 
     try {
-      const response = await purchaseApi.requestExchangeAndReturn(purchaseObject);
+      const response = await purchaseApi.requestExchangeAndReturn(requestObject);
       onAlert({ status: response.status, message: response.message });
       setTimeout(() => window.location.reload(), 3000);
     }
