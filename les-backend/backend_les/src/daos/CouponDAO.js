@@ -2,6 +2,14 @@ const { Op } = require('sequelize');
 const Coupon = require('../models/coupon');
 
 class CouponDAO {
+    static async save(data, transaction = null) {
+        try {
+            return await Coupon.create(data, { transaction });
+        } catch (error) {
+            throw error;
+        }
+    }
+    
     static async find(field, value, transaction = null) {
         try {
             return await Coupon.findAll({

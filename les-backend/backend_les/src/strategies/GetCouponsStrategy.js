@@ -23,7 +23,7 @@ class GetCouponsStrategy {
                     code: coupon.code,
                     value: coupon.value,
                     hasBeenUsed: coupon.isUsed,
-                    type: "Frete Grátis",
+                    type: coupon.type,
                     userId: userId
                 };
             });

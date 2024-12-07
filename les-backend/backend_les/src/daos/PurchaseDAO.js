@@ -35,6 +35,14 @@ class PurchaseDAO {
         }
     }
 
+    static async findById(id, transaction = null) {
+        try {
+            return await Purchase.findByPk(id, { transaction });
+        } catch (error) {
+            throw error;
+        }
+    }
+
     static async findAll(transaction = null) {
         try {
             return await Purchase.findAll({

@@ -33,4 +33,15 @@ router.get('/getByUserId', async (req, res) => {
     }
 });
 
+router.post('/exchangeAndReturn', async (req, res) => {
+    const requestObject = req.body;
+
+    try {
+        const result = await PurchaseService.requestExchangeAndReturn(requestObject);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao solicitar operação de troca/devolução da compra! ${error.message}`, status: 500 });
+    }
+});
+
 module.exports = router;

@@ -3,6 +3,8 @@ const ValidatePurchaseObjectStrategy = require('../strategies/ValidatePurchaseOb
 const UpdatePurchaseStatusStrategy = require('../strategies/UpdatePurchaseStatusStrategy');
 const CheckUserIfExistsStrategy = require('../strategies/CheckUserIfExistsStrategy');
 const GetUserPurchasesStrategy = require('../strategies/GetUserPurchasesStrategy');
+const ValidateRequestObjectStrategy = require('../strategies/ValidateRequestObjectStrategy');
+const RequestExchangeAndReturnStrategy = require('../strategies/RequestExchangeAndReturnStrategy');
 
 class PurchaseService {
     static async getPurchasesTable() {
@@ -26,6 +28,15 @@ class PurchaseService {
         try {
             await CheckUserIfExistsStrategy.execute(userId);
             return await GetUserPurchasesStrategy.execute(userId);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async requestExchangeAndReturn(requestObject) {
+        try {
+            await ValidateRequestObjectStrategy.execute(requestObject);
+            return await RequestExchangeAndReturnStrategy.execute(requestObject);
         } catch (error) {
             throw error;
         }
