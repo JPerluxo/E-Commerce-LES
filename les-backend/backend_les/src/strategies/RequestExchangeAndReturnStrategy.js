@@ -7,6 +7,7 @@ class RequestExchangeAndReturnStrategy {
         const transaction = await sequelize.transaction();
         try {
             const existingPurchase = await PurchaseDAO.findById(requestObject.purchaseId, transaction);
+            if (existingPurchase.purchaseValue <= 0) throw new Error('O campo "Valor da bebida" deve ter um valor válido.');
             const couponCode = `${existingPurchase.id}${existingPurchase.purchaseDate.replace(/-/g, '')}`;
 
             const couponObj = {

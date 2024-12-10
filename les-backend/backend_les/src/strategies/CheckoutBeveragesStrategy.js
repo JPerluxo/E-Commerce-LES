@@ -35,6 +35,7 @@ class CheckoutBeveragesStrategy {
                         
                         const couponObj = await CouponDAO.findById(couponId);
                         existingCheckoutItem.purchaseValue -= parseFloat(couponObj.value);
+                        if (existingCheckoutItem.purchaseValue <= 0) throw new Error('O campo "Valor da bebida" deve ter um valor válido.');
                         if (!couponObj.isUsed) await CouponDAO.update({...couponObj, "isUsed": true}, transaction);
                     }
  
