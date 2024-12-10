@@ -4,6 +4,8 @@
   background-image: url('../../../../../images/admin-home-bgd.png');
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 .menuBox {
@@ -13,8 +15,8 @@
   padding: 5vh;
   background-color: #ffffffab;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
-  width: 100%;
-  justify-content: space-around;
+  width: 80%;
+  justify-content: space-evenly;
 }
 
 @media screen and ((max-width: 768px)) {
